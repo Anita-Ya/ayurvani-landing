@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>AyurVani Capsules | Ayurvedic Brain & Speech Support</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Halant:wght@400;500;600;700&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  :root{
+    --forest:#173C2E;
+    --forest-2:#0E2A20;
+    --wine:#173C2E;
+    --wine-2:#0E2A20;
+    --gold:#e49d0f;
+    --gold-light:#EAD08C;
+    --cream:#FAF6EC;
+    --paper:#FFFFFF;
+    --ink:#232920;
+    --ink-soft:#5B6A5E;
+    --line:#EDE6D3;
+    --red:#B5493A;
+    --green:#2E6B4A;
+       --radius:18px;
+      --sec-pad-y:28px;
+      --sec-pad-x:18px;
+      --maxw:450px;
+    --font-display:'Halant', serif;
+    --font-body:'Hind', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0; font-family:var(--font-body);}
+  html{scroll-behavior:smooth; font-size:18px;}
+  body{
+    
+    color:var(--ink);
+    min-height:100vh;
+    display:flex; justify-content:center;
+  }
+  h1,h2,h3,.display{font-family:var(--font-display); font-weight:600; line-height:1.4;}
+  img{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+
+  .app{
+    max-width:450px; width:100%;
+    background:var(--cream);
+    position:relative; overflow-x:hidden; min-height:100vh;
+    box-shadow:0 0 60px rgba(0,0,0,0.5);
+  }
+  .blurred{filter:blur(6px); pointer-events:none; user-select:none; transition:filter .25s ease;}
+  .img-box{overflow:hidden; background:var(--line);}
+  .img-box img{width:100%; height:100%; object-fit:cover;}
+
+  /* ============ NAVBAR (logo + CTA only) ============ */
+  .navbar{
+    position:sticky; top:0; z-index:500;
+    background:rgba(23,60,46,0.9);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(234,208,140,0.25);
+    padding:16px 18px;
+  }
+  .nav-top{display:flex; align-items:center; justify-content:space-between;}
+  .nav-brand{font-family:var(--font-display); color:var(--gold-light); font-size:1.2rem; letter-spacing:0.4px;}
+  .nav-brand span{display:block; font-family:var(--font-body); font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:#b9cbbe; margin-top:2px;}
+  .nav-cta{
+    background:linear-gradient(180deg, var(--gold-light), var(--gold)); color:var(--forest); font-weight:700; font-size:0.8rem;
+    padding:10px 20px; border-radius:30px; white-space:nowrap;
+    box-shadow:0 6px 16px rgba(199,154,61,0.35);
+  }
+
+  /* ============ SIGNATURE DIVIDER (botanical vein motif — reused everywhere for cohesion) ============ */
+  .divider{width:96px; height:20px; margin:0 auto 32px; opacity:0.9;}
+  .divider svg{width:100%; height:100%;}
+
+  /* ============ SECTION GENERIC — same top/bottom padding across every section ============ */
+  section{padding:30px 20px;}
+  .eyebrow{font-size:20px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:600; text-align:center; margin-bottom:10px;}
+  .title{font-size:28px; text-align:center; color:var(--forest); margin-bottom:14px;}
+
+  
+
+  /* ============ PROBLEM — wine tone, connected symptom checklist ============ */
+  .problem-sec{background:linear-gradient(180deg, var(--wine) 0%, var(--wine-2) 100%);}
+  .problem-sec .title, .problem-sec .eyebrow{color:var(--gold-light);}
+  .problem-zigzag{display:flex; flex-direction:column; gap:34px;}
+  .pz-row{display:flex; align-items:center; gap:16px;}
+  .pz-row:nth-child(even){flex-direction:row-reverse;}
+  .pz-row:nth-child(even) .pz-body{text-align:right;}
+  .pz-img{width:140px; height:140px; min-width:140px; min-height:140px; border-radius:22px; position:relative;
+    box-shadow:0 16px 28px rgba(0,0,0,0.4); border:3px solid var(--gold-light); transition:transform .3s ease;}
+  .pz-row:nth-child(odd) .pz-img{transform:rotate(-4deg);}
+  .pz-row:nth-child(even) .pz-img{transform:rotate(4deg);}
+  .pz-row:hover .pz-img{transform:rotate(0deg) scale(1.04);}
+  .pz-tag{
+    position:absolute; bottom:-21px; left:50%; transform:translateX(-50%);
+    background:linear-gradient(135deg, var(--gold-light), var(--gold)); color:var(--wine-2);
+    font-size:0.62rem; font-weight:700; letter-spacing:0.4px; padding:4px 11px; border-radius:20px;
+    white-space:nowrap; box-shadow:0 5px 12px rgba(0,0,0,0.4); z-index:10; overflow: visible;
+  }
+  .pz-body{flex:1; min-width:0;}
+  .pz-body h4{color:var(--gold-light); font-size:1rem; margin-bottom:5px;}
+  .pz-body p{color:#e4d3d9; font-size:0.85rem; line-height:1.5;}
+  .problem-sec .note{font-size:0.92rem; text-align:center; margin-top:26px; color:#dcc7ce; line-height:1.6;}
+.pz-row{
+    opacity:0;
+    transform:translateY(30px);
+    transition:.7s;
+}
+
+.pz-row.is-visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.pz-img{
+    overflow:hidden;
+}
+
+.pz-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    clip-path:inset(0 100% 0 0);
+    transform:scale(1.12);
+
+    transition:
+    clip-path .9s cubic-bezier(.16,1,.3,1),
+    transform 1s cubic-bezier(.16,1,.3,1);
+}
+
+.pz-row.is-visible .pz-img img{
+    clip-path:inset(0 0 0 0);
+    transform:scale(1);
+}
+  /* ============ SOLUTION — redesigned as a single content card with a large hero image ============ */
+  .solution-sec{background:linear-gradient(135deg, var(--forest), var(--forest-2)); color:var(--paper); text-align:center;}
+  .solution-sec .title{color:var(--gold-light);}
+  .solution-card{
+    background:rgba(255,255,255,0.06); border:1px solid rgba(234,208,140,0.28); border-radius:20px;
+    padding:16px; text-align:left; backdrop-filter:blur(6px);
+  }
+  .solution-img{width:100%; height:300px; border-radius:16px; overflow:hidden; margin-bottom:18px; box-shadow:0 16px 32px rgba(0,0,0,0.35); border:2px solid var(--gold-light);}
+  .solution-img img{width:100%; height:100%; object-fit:cover;}
+  .solution-lead{font-size:1rem; color:#eef3ee; margin-bottom:16px; line-height:1.6; font-weight:500;}
+  .solution-points{list-style:none; margin-bottom:16px;}
+  .solution-points li{display:flex; gap:10px; align-items:flex-start; font-size:0.92rem; color:#dfe8e1; margin-bottom:12px; line-height:1.5;}
+  .solution-points li:last-child{margin-bottom:0;}
+  .solution-points li i{color:var(--gold-light); font-size:1.15rem; margin-top:2px; flex-shrink:0;}
+  .solution-note{font-size:0.82rem; color:#c9d6cd; border-top:1px dashed rgba(234,208,140,0.3); padding-top:14px; line-height:1.6;}
+  .solution-sec .tagline{font-family:var(--font-display); font-size:1.2rem; color:var(--gold-light); margin-top:24px; text-align:center;}
+
+  /* ============ BENEFITS — cream tone, scroll-revealed step journey (sized for 450px app) ============ */
+  .benefits-sec{background:var(--cream);}
+  .ben-track{position:relative; padding-left:26px;}
+  .ben-track::before{content:""; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background:var(--line);}
+  .ben-fill{position:absolute; left:8px; top:4px; width:2px; background:linear-gradient(180deg, var(--gold-light), var(--gold)); height:0%; transition:height .3s ease-out;}
+  .ben-panel{position:relative; margin-bottom:34px; opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .ben-panel:last-child{margin-bottom:0;}
+  .ben-panel.is-visible{opacity:1; transform:translateY(0);}
+  .ben-dot{position:absolute; left:-26px; top:6px; width:16px; height:16px; border-radius:50%; background:var(--paper); border:2px solid var(--gold-light); z-index:2; transition:all .4s cubic-bezier(.34,1.56,.64,1);}
+  .ben-panel.is-visible .ben-dot{background:linear-gradient(135deg, var(--gold-light), var(--gold)); border-color:var(--forest); transform:scale(1.15);}
+  .ben-media{position:relative; border-radius:16px; overflow:hidden; height:220px; box-shadow:0 14px 26px rgba(23,60,46,0.18); clip-path:inset(0 100% 0 0); transition:clip-path .9s cubic-bezier(.16,1,.3,1);}
+  .ben-panel.is-visible .ben-media{clip-path:inset(0 0% 0 0);}
+  .ben-media img{width:100%; height:100%; object-fit:cover; transform:scale(1.12); transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+  .ben-panel.is-visible .ben-media img{transform:scale(1);}
+  .ben-tag{position:absolute; top:12px; left:12px; background:rgba(23,60,46,0.85); color:var(--gold-light); font-size:0.65rem; font-weight:600; letter-spacing:1px; padding:5px 11px; border-radius:20px; opacity:0; transform:translateY(-6px); transition:opacity .5s ease .35s, transform .5s ease .35s;}
+  .ben-panel.is-visible .ben-tag{opacity:1; transform:translateY(0);}
+  .ben-content{padding:14px 2px 0;}
+  .ben-frac{font-size:0.72rem; font-weight:700; color:var(--gold); letter-spacing:1px; margin-bottom:5px;}
+  .ben-frac span{color:var(--ink-soft); font-weight:500;}
+  .ben-content h4{color:var(--forest); font-size:1.04rem; margin-bottom:5px;}
+  .ben-content p{color:var(--ink-soft); font-size:0.87rem; line-height:1.5;}
+  .ben-bar{height:3px; width:42px; background:linear-gradient(90deg, var(--gold-light), var(--gold)); border-radius:3px; margin-top:12px; transform:scaleX(0); transform-origin:left; transition:transform .5s ease .5s;}
+  .ben-panel.is-visible .ben-bar{transform:scaleX(1);}
+  @media (prefers-reduced-motion: reduce){
+    .ben-panel, .ben-dot, .ben-media, .ben-media img, .ben-tag, .ben-bar{transition:none !important; opacity:1 !important; transform:none !important; clip-path:inset(0 0 0 0) !important;}
+  }
+
+  /* ============ INGREDIENTS — paper tone, swipeable specimen carousel ============ */
+  .ingredients-sec{background:var(--forest);}
+     .arch-grid-stage {
+      width:100%;
+      max-width:var(--maxw);
+  box-shadow:0 20px 45px rgba(23,60,46,0.08);
+      position:relative;
+    }
+
+    /* Header Block */
+    .arch-header {
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .top-chip-pill {
+      font-family:var(--font-body);
+      display:inline-block;
+      background:var(--gold);
+      color:var(--forest-2);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:2.5px;
+      padding:6px 18px;
+      border-radius:50px;
+      text-transform:uppercase;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+      margin-bottom:10px;
+    }
+
+    .arch-title {
+      color:var(--gold-light);
+      font-family:var(--font-display);
+      font-size:26px;
+      font-weight:700;
+      line-height:1.3;
+    }
+
+    .arch-title span {
+      color:var(--paper);
+      display:block;
+      font-size:22px;
+      margin-top:4px;
+    }
+
+    /* 2-Column Grid Container */
+    .arch-grid-container {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      position:relative;
+    }
+
+    /* Last Item Spans Full Width if Odd Number (5 Items) */
+    .arch-card-unit:last-child {
+      grid-column:1 / -1;
+      max-width:280px;
+      margin:0 auto;
+      width:100%;
+    }
+
+    /* Individual Card Unit */
+    .arch-card-unit {
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px 12px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      position:relative;
+      box-shadow:0 6px 16px rgba(23,60,46,0.04);
+    }
+
+    /* 140px ARCH SHIELD FRAME */
+    .arch-img-wrapper {
+      width:140px;
+      height:140px;
+      min-width:140px;
+      min-height:140px;
+      position:relative;
+      margin-bottom:12px;
+      filter:drop-shadow(0 6px 14px rgba(23,60,46,0.12));
+    }
+
+    /* Consistent Royal Arch Cut */
+    .arch-mask-frame {
+      width:100%;
+      height:100%;
+      border-radius:70px 70px 18px 18px;
+      background:linear-gradient(135deg, var(--forest), var(--gold));
+      padding:3.5px;
+    }
+
+    .arch-mask-frame img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:67px 67px 15px 15px;
+    }
+
+    /* Step Badge */
+    .arch-num-badge {
+      position:absolute;
+      top:-8px;
+      background:var(--gold);
+      color:var(--paper);
+      font-family:var(--font-body);
+      font-size:10px;
+      font-weight:800;
+      padding:2px 10px;
+      border-radius:20px;
+      box-shadow:0 3px 8px rgba(23,60,46,0.3);
+      z-index:5;
+    }
+
+    /* Text Block */
+    .arch-text-content {
+      width:100%;
+    }
+
+    .arch-herb-name {
+      font-family:var(--font-display);
+      font-size:20px;
+      font-weight:700;
+      color:var(--forest-2);
+      margin-bottom:4px;
+    }
+
+    .arch-herb-desc {
+      color:var(--ink-soft);
+      font-family:var(--font-body);
+      font-size:15px;
+      font-weight:500;
+      line-height:1.4;
+    }
+
+   
+
+    /* Footer Stamp */
+    .arch-footer-stamp {
+      margin-top:28px;
+      padding:12px var(--sec-pad-x);
+      border-top:1px dashed var(--line);
+      text-align:center;
+      color:var(--forest-2);
+      font-family:var(--font-display);
+      font-size:18px;
+      font-weight:700;
+      background:var(--cream);
+      border-radius:var(--radius);
+    }
+
+  /* ============ CERTIFICATES — wine tone, medallion badges (static, no hover animation) ============ */
+  .cert-sec{background:linear-gradient(160deg, var(--wine), var(--wine-2)); color:var(--paper); border-top:2px solid var(--gold);}
+  .cert-sec .title{color:var(--gold-light);}
+  .cert-sec .eyebrow{color:var(--gold-light);}
+  .cert-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .cert-tile{text-align:center;}
+  .cert-tile .img-box{
+    width:140px; height:140px; min-width:140px; min-height:140px; border-radius:50%; margin:0 auto 14px;
+    border:3px solid var(--gold-light); box-shadow:0 10px 24px rgba(0,0,0,0.35);
+  }
+  .cert-tile span{font-size:0.86rem; color:#f1e9e0; font-weight:500;}
+
+  /* ============ DOCTOR / EXPERT — banner style ============ */
+  .doctor-sec{background:var(--cream);}
+  .doctor-banner{position:relative; width:100%; height:380px; border-radius:20px; overflow:hidden; box-shadow:0 16px 34px rgba(23,60,46,0.2); margin-bottom:18px; border:2px solid var(--gold-light);}
+  .doctor-banner-img{width:100%; height:100%;}
+  .doctor-banner-img img{width:100%; height:100%; object-fit:cover;}
+  .doctor-banner-overlay{position:absolute; left:0; right:0; bottom:0; padding:18px 20px; background:linear-gradient(0deg, rgba(14,42,32,0.95) 10%, rgba(14,42,32,0.55) 60%, rgba(14,42,32,0) 100%);}
+  .doctor-banner-overlay .doc-name{font-family:var(--font-display); font-size:1.08rem; color:var(--gold-light); margin-bottom:4px;}
+  .doctor-banner-overlay .doc-role{font-size:0.8rem; color:#e7ede9; font-weight:600;}
+  .doctor-quote-card{background:var(--paper); border-radius:20px; padding:22px 20px; box-shadow:0 14px 28px rgba(23,60,46,0.12); position:relative; overflow:hidden;}
+  .doctor-quote-card .quote-mark{position:absolute; top:6px; right:18px; font-family:var(--font-display); font-size:3.4rem; color:rgba(199,154,61,0.16); line-height:1;}
+  .doctor-quote-card .quote{font-size:0.96rem; color:var(--ink); font-style:italic; line-height:1.65; position:relative; z-index:1;}
+
+  /* ============ HOW TO USE — deep wine, connected vertical timeline ============ */
+  .how-sec{background:linear-gradient(180deg, var(--wine-2), #241016);}
+  .how-sec .title, .how-sec .eyebrow{color:var(--gold-light);}
+  .timeline{position:relative; padding-left:30px;}
+  .timeline::before{content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px; background:rgba(234,208,140,0.28);}
+  .tstep{position:relative; display:flex; gap:16px; align-items:center; margin-bottom:30px;}
+  .tstep:last-child{margin-bottom:0;}
+  .tstep .tnum{
+    position:absolute; left:-30px; top:50%; transform:translateY(-50%);
+    width:22px; height:22px; border-radius:50%; background:var(--gold-light); color:var(--wine-2);
+    font-size:0.76rem; font-weight:700; display:flex; align-items:center; justify-content:center;
+  }
+  .tstep .img-box{width:140px; height:140px; min-width:140px; min-height:140px; border-radius:14px; box-shadow:0 10px 22px rgba(0,0,0,0.35);}
+  .tstep h4{color:var(--gold-light); font-size:1rem; margin-bottom:6px;}
+  .tstep p{color:#e1d2d6; font-size:0.86rem; line-height:1.5;}
+
+  /* ============ BEFORE / AFTER — paired transformation rows ============ */
+  .ba-sec{background:var(--paper);}
+  .ba-legend{display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:26px;}
+  .ba-pill{font-family:var(--font-display); font-size:0.95rem; padding:6px 16px; border-radius:20px; color:var(--paper);}
+  .ba-pill.before{background:var(--red);}
+  .ba-pill.after{background:var(--green);}
+  .ba-legend i{color:var(--gold); font-size:1.2rem;}
+  .tf-row{display:flex; align-items:center; gap:8px; padding:18px 0; border-bottom:1px dashed var(--line);}
+  .tf-row:first-child{padding-top:0;}
+  .tf-row:last-child{border-bottom:none; padding-bottom:0;}
+  .tf-side{flex:1; text-align:center;}
+  .tf-side .img-box{width:140px; height:140px; min-width:140px; min-height:140px; border-radius:14px; margin:0 auto 8px;}
+  .tf-side.before .img-box{border:3px solid var(--red);}
+  .tf-side.after .img-box{border:3px solid var(--green);}
+  .tf-side h4{font-size:0.8rem; color:var(--forest); font-weight:600; line-height:1.3;}
+  .tf-arrow{
+    flex:0 0 34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--gold-light), var(--gold)); color:var(--wine-2); font-size:1rem;
+    box-shadow:0 6px 14px rgba(199,154,61,0.4); animation:tfPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes tfPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
+  @media (prefers-reduced-motion: reduce){ .tf-arrow{animation:none;} }
+.tf-side .img-box{
+
+position:relative;
+overflow:hidden;
+
+}
+
+.tf-side .img-box::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-140%;
+
+width:45%;
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.45),
+transparent
+);
+
+transform:skewX(-20deg);
+
+animation:shine 3.5s linear infinite;
+
+}
+
+@keyframes shine{
+
+100%{
+left:180%;
+}
+
+}
+  /* ============ OFFER + ORDER (merged, highlighted) ============ */
+  .offer-sec{background:linear-gradient(135deg, var(--gold-light), var(--gold)); text-align:center; color:var(--forest);}
+  .offer-sec .img-box{width:100%; height:190px; min-height:140px; border-radius:14px; margin-bottom:24px; box-shadow:0 14px 30px rgba(23,60,46,0.2);}
+  .offer-sec h2{font-size:1.4rem; margin-bottom:16px;}
+  .offer-list{list-style:none; display:inline-block; text-align:left;}
+  .offer-list li{font-size:1rem; margin-bottom:10px; font-weight:600;}
+  .order-form-lead{margin-top:26px; margin-bottom:-6px; font-size:0.9rem; font-weight:600; color:var(--forest-2);}
+  .highlighted-order{
+    margin-top:30px; text-align:left; position:relative;
+    border:2px solid var(--forest); box-shadow:0 0 0 6px rgba(23,60,46,0.1), 0 18px 36px rgba(23,60,46,0.28);
+  }
+  .highlighted-order::before{
+    content:"⭐ Recommended"; position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--forest); color:var(--gold-light); font-size:0.72rem; font-weight:700;
+    padding:5px 16px; border-radius:20px; white-space:nowrap; box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  }
+
+  .cta-mid{background:var(--forest-2); text-align:center; padding:50px 20px;}
+  .cta-mid h2{color:var(--gold-light); font-size:1.25rem; margin-bottom:24px;}
+
+  /* ============ TESTIMONIALS ============ */
+  .testi-sec{background:var(--forest);}
+  .testi-sec .title{color:var(--gold-light);}
+  .testi-sec .eyebrow{color:var(--gold-light);}
+  .unique-card{
+    background:#ffffff; border-radius:16px; padding:25px 18px 20px; margin-bottom:62px;
+    position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  }
+  .unique-card:last-child{margin-bottom:0;}
+  .floating-avatar{
+    position:absolute; top:-48px; left:8px; width:128px; height:128px; border-radius:50%;
+    overflow:hidden; border:3px solid var(--gold-light); box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  }
+  .floating-avatar img{width:100%; height:100%; object-fit:cover;}
+  .card-top-info{margin-left:70px; margin-bottom:12px; padding-left: 70px;}
+  .customer-name{font-family:var(--font-display); font-size:1.05rem; font-weight:600; color:var(--forest);}
+  .customer-location{font-size:0.82rem; color:var(--gold); font-weight:500;}
+  .stars{color:var(--gold); font-size:0.95rem; margin-bottom:10px; letter-spacing:1px;}
+  .review-desc{
+    font-size:0.92rem; line-height:1.65; color:var(--ink-soft);
+    background:var(--cream); padding:14px 15px; border-radius:10px; border-left:3px solid var(--gold);
+  }
+
+  /* ============ FAQ ============ */
+  .faq-sec{background:var(--cream);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-q{padding:18px 0; font-weight:600; font-size:1rem; color:var(--forest); display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:10px;}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .3s ease; font-size:0.95rem; color:var(--ink-soft);}
+  .faq-item.open .faq-a{max-height:200px; padding-bottom:18px;}
+  .faq-item.open .faq-q i{transform:rotate(180deg);}
+  .faq-q i{transition:transform .3s ease; color:var(--gold); font-size:1.2rem; flex-shrink:0;}
+
+  /* ============ ORDER FORM (shared card styles, used inside the offer section) ============ */
+  .order-badge{text-align:center; color:var(--gold-light); font-size:0.82rem; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; font-weight:600;}
+  .order-card{background:var(--paper); border-radius:18px; padding:26px 20px; box-shadow:0 18px 36px rgba(0,0,0,0.35); border:1px solid rgba(234,208,140,0.3);}
+  .order-mini{display:flex; align-items:center; gap:16px; margin-bottom:24px; padding-bottom:20px; border-bottom:1px dashed var(--line);}
+  .order-mini .img-box{width:140px; height:140px; min-width:140px; min-height:140px; border-radius:12px; box-shadow:0 8px 18px rgba(23,60,46,0.15);}
+  .order-mini div span{display:block;}
+  .order-mini .p-name{font-family:var(--font-display); font-size:1.08rem; color:var(--forest); margin-bottom:4px;}
+  .order-mini .p-sub{font-size:0.85rem; color:var(--ink-soft);}
+  .form-group{margin-bottom:18px;}
+  .form-group label{font-size:0.92rem; font-weight:600; color:var(--forest); display:block; margin-bottom:7px;}
+  .form-group input{
+    width:100%; padding:13px 14px; border:1.5px solid var(--line); border-radius:8px;
+    font-size:1rem; font-family:var(--font-body); color:var(--ink); background:var(--cream); outline:none; transition:border-color .2s;
+  }
+  .form-group input:focus{border-color:var(--gold);}
+  .form-error{font-size:0.82rem; color:var(--red); margin-top:5px; display:none;}
+  .btn-submit{
+    width:100%; background:var(--forest); color:var(--paper); font-family:var(--font-display);
+    font-size:1.05rem; font-weight:600; padding:16px; border:none; border-radius:10px; cursor:pointer; margin-top:4px;
+  }
+  .order-trust{display:flex; justify-content:center; gap:18px; margin-top:18px; flex-wrap:wrap;}
+  .order-trust span{font-size:0.8rem; color:var(--ink-soft); display:flex; align-items:center; gap:5px;}
+  .order-trust i{color:var(--green);}
+
+  .disclaimer-sec{background:var(--cream); padding:10px 20px;}
+   .disclaimer-sec p{font-size:8px; color:var(--ink-soft); margin-bottom:8px; opacity: 0.44;}
+
+  footer{background:var(--forest-2); color:#a9bcae; text-align:center; padding:20px; font-size:0.82rem; padding-bottom:90px;}
+
+  /* ============ STICKY BOTTOM ORDER BAR ============ */
+  .sticky-order{
+    position:fixed; left:50%; bottom:16px; transform:translate(-50%, 160%);
+    width:calc(100% - 40px); max-width:410px; z-index:600;
+    background:var(--forest);
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:10px 10px 10px 18px; border-radius:16px;
+    border:1px solid rgba(234,208,140,0.35);
+    box-shadow:0 12px 30px rgba(0,0,0,0.45);
+    transition:transform .35s ease;
+  }
+  .sticky-order.show{transform:translate(-50%, 0);}
+  .sticky-order-info{display:flex; flex-direction:column; text-align:left;}
+  .sticky-order-label{font-family:var(--font-display); font-size:0.95rem; font-weight:600; color:var(--gold-light); line-height:1.3;}
+  .sticky-order-sub{font-size:0.7rem; color:#c9d6cd;}
+  .sticky-order-btn{
+    background:linear-gradient(180deg, var(--gold-light), var(--gold)); color:var(--forest);
+    text-align:center; font-family:var(--font-display); font-weight:700;
+    font-size:0.92rem; padding:12px 18px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center; gap:6px; white-space:nowrap;
+    box-shadow:0 6px 14px rgba(199,154,61,0.4);
+  }
+
+  /* ============ LOADING OVERLAY ============ */
+  .loading-overlay{display:none; position:fixed; inset:0; z-index:10000; align-items:center; justify-content:center; background:rgba(14,42,32,0.4);}
+  .loading-overlay.show{display:flex;}
+  .loader-box{background:#fff; border-radius:14px; padding:34px 40px; text-align:center; box-shadow:0 14px 34px rgba(0,0,0,0.3);}
+  .spinner{width:48px; height:48px; border:5px solid var(--line); border-top-color:var(--forest); border-radius:50%; margin:0 auto 16px; animation:spin .9s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .loader-box p{font-size:1rem; color:var(--forest); font-weight:600;}
+
+  /* policy */
+
+.pl-wrap{
+  max-width:450px;
+  width:100%;
+  margin-bottom: 20px;
+  margin-top: -20px;
+  padding:8px 12px;
+  box-sizing:border-box
+}
+.pl-row{
+  display:flex;
+  gap:0;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center
+}
+.pl-link{
+  background:none;
+  border:none;
+  font-size:7px;
+  opacity:0.44;
+  font-weight:500;
+  color:#267156;
+  cursor:pointer;
+  padding:4px 5px;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  font-family:inherit;
+  white-space:nowrap;
+  transition:color .15s
+}
+.pl-link:hover{
+  color:#1a5240
+}
+.pl-sep{
+  color:#c9ddd7;
+  font-size:11px;
+  user-select:none
+}
+.pp-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:9999;
+  align-items:center;
+  justify-content:center
+}
+.pp-overlay.show{
+  display:flex
+}
+.pp-modal{
+  background:#fff;
+  border-radius:18px;
+  max-width:420px;
+  width:90%;
+  max-height:80vh;
+  overflow-y:auto;
+  padding:22px 18px 18px;
+  position:relative
+}
+.pp-close{
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:#e6f3ed;
+  border:none;
+  border-radius:50%;
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#267156;
+  font-size:16px
+}
+.pp-close:hover{
+  background:#c9ddd7
+}
+.pp-mtitle{
+  font-size:17px;
+  font-weight:700;
+  color:#1a5240;
+  margin-bottom:4px;
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+.pp-mtitle i{
+  font-size:20px
+}
+.pp-mbadge{
+  display:inline-block;
+  background:#e6f3ed;
+  color:#267156;
+  font-size:11px;
+  font-weight:600;
+  padding:2px 10px;
+  border-radius:999px;
+  margin-bottom:12px
+}
+.pp-mpara{
+  font-size:14px;
+  color:#333;
+  line-height:1.7;
+  margin-bottom:10px
+}
+.pp-mlist{
+  padding-left:0;
+  list-style:none;
+  margin:0 0 10px
+}
+.pp-mlist li{
+  font-size:14px;
+  color:#333;
+  line-height:1.6;
+  padding:5px 0 5px 20px;
+  position:relative;
+  border-bottom:1px dashed #e2ede9
+}
+.pp-mlist li:last-child{
+  border-bottom:none
+}
+.pp-mlist li::before{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:13px;
+  width:7px;
+  height:7px;
+  background:#39ad7d;
+  border-radius:50%
+}
+.pp-mhl{
+  background:#e6f3ed;
+  border-left:3px solid #267156;
+  border-radius:0 8px 8px 0;
+  padding:9px 13px;
+  font-size:13px;
+  color:#1a5240;
+  margin-bottom:10px
+}
+.pp-cgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:8px
+}
+.pp-citem{
+  background:#f4faf7;
+  border:1px solid #c9ddd7;
+  border-radius:10px;
+  padding:10px;
+  text-align:center
+}
+.pp-citem i{
+  font-size:20px;
+  color:#267156;
+  display:block;
+  margin-bottom:4px
+}
+.pp-citem .pp-clbl{
+  font-size:11px;
+  color:#888;
+  margin-bottom:2px
+}
+.pp-citem .pp-cval{
+  font-size:11px;
+  font-weight:600;
+  color:#1a5240
+}
+@media (max-width:480px){
+  .pl-wrap{
+    padding:8px 4px
+  }
+  .pl-link{
+    font-size:6px;
+    padding:4px 2px
+  }
+  .pl-sep{
+    font-size:6px
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="app" id="app-root">
+  <!-- ============ NAVBAR: logo + CTA only ============ -->
+  <nav class="navbar">
+    <div class="nav-top">
+      <div class="nav-brand">AyurVani<span>SS Herbal · Since 1990</span></div>
+      <a href="#order-form" class="nav-cta">Order Now</a>
+    </div>
+  </nav>
+
+
+
+<div id="home"><img src="images/banner.avif" alt=""></div>
+  <!-- ============ PROBLEM — alternating media rows ============ -->
+  <section class="problem-sec" id="problem">
+    <div class="eyebrow">The Real Impact</div>
+    <h2 class="title">तुतलाहट की वजह से बच्चे को कौन-कौन सी परेशानियां हो सकती हैं?</h2>
+    <div class="divider" style="color:var(--gold-light);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="problem-zigzag">
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-1.avif" alt="शब्द सही से न बोल पाना"><span class="pz-tag">संकेत 01</span></div><div class="pz-body"><h4>शब्द सही से न बोल पाना</h4><p>"स", "श", "ज़" जैसे शब्दों का उच्चारण सही से न कर पाना</p></div></div>
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-2.avif" alt="जीभ का बार-बार बाहर आना"><span class="pz-tag">संकेत 02</span></div><div class="pz-body"><h4>जीभ का बार-बार बाहर आना</h4><p>बोलते समय जीभ बार-बार दाँतों के बीच आ जाना</p></div></div>
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-4.avif" alt="शब्दों से बचना"><span class="pz-tag">संकेत 03</span></div><div class="pz-body"><h4>शब्दों से बचना</h4><p>कुछ मुश्किल शब्द बोलने से बचने लगना</p></div></div>
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-5.avif" alt="Presentation से डर"><span class="pz-tag">संकेत 04</span></div><div class="pz-body"><h4>Presentation से डर</h4><p>स्कूल में Presentation देने से डरने लगना</p></div></div>
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-6.avif" alt="दोस्तों के सामने झिझक"><span class="pz-tag">संकेत 05</span></div><div class="pz-body"><h4>दोस्तों के सामने झिझक</h4><p>दोस्तों के सामने बोलने में शर्म महसूस करना</p></div></div>
+      <div class="pz-row"><div class="pz-img"><img src="images/problem-7.avif" alt="Confidence में कमी"><span class="pz-tag">संकेत 06</span></div><div class="pz-body"><h4>Confidence में कमी</h4><p>धीरे-धीरे उसका Confidence कम होते जाना</p></div></div>
+    </div>
+
+    <p class="note">कई Parents शुरुआत में इसे सामान्य समझकर नज़रअंदाज़ कर देते हैं — लेकिन सही ध्यान न मिलने से यह बच्चे की Communication Skills, Social Confidence और School Performance को प्रभावित कर सकता है।</p>
+  </section>
+
+  <!-- ============ SOLUTION — big hero image + clean content card ============ -->
+  <section class="solution-sec">
+    <div class="eyebrow" style="color:var(--gold-light);">Hope Ahead</div>
+    <h2 class="title">अब उम्मीद छोड़ने की जरूरत नहीं</h2>
+    <div class="divider" style="color:var(--gold-light); margin:0 auto 24px;"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="solution-card">
+      <div class="solution-img"><img src="images/product.avif" alt="Ayurvedic Solution"></div>
+      <p class="solution-lead">Brain & Speech Development Routine को Support करने के लिए तैयार किया गया है यह खास Ayurvedic Formula।</p>
+      <ul class="solution-points">
+        <li><i class="ti ti-leaf"></i> AyurVani विशेष रूप से चुनी गई आयुर्वेदिक जड़ी-बूटियों के संयोजन से तैयार किया गया है।</li>
+        <li><i class="ti ti-brain"></i> Brain Health और Nervous System को Support करने में सहायक।</li>
+      </ul>
+      <p class="solution-note">यदि बच्चे को Speech से जुड़ी समस्या है, तो Speech Therapist या Pediatrician की सलाह लेना आवश्यक है। AyurVani को केवल Supportive Routine के रूप में उपयोग करें।</p>
+    </div>
+
+    <div class="tagline">हर दिन एक छोटा कदम... बेहतर Communication की तरफ।</div>
+  </section>
+
+  <!-- ============ BENEFITS — full-bleed overlay spotlight cards ============ -->
+  <section class="benefits-sec">
+    <div class="eyebrow">Why AyurVani</div>
+    <h2 class="title">इस Formula से क्या-क्या फायदे मिल सकते हैं?</h2>
+    <div class="divider" style="color:var(--gold);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="ben-track">
+      <div class="ben-fill" id="benFill"></div>
+
+      <div class="ben-panel" data-i="0">
+        <div class="ben-dot"></div>
+        <div class="ben-media"><img src="images/benefit-1.avif" alt="Brain Health Support"><span class="ben-tag">फायदा 01</span></div>
+        <div class="ben-content">
+          <div class="ben-frac">01 <span>/ 03</span></div>
+          <h4>Brain Health Support</h4>
+          <p>Brain Health एवं Learning को Support करने में सहायक</p>
+          <div class="ben-bar"></div>
+        </div>
+      </div>
+
+      <div class="ben-panel" data-i="1">
+        <div class="ben-dot"></div>
+        <div class="ben-media"><img src="images/benefit-2.avif" alt="Nervous System Support"><span class="ben-tag">फायदा 02</span></div>
+        <div class="ben-content">
+          <div class="ben-frac">02 <span>/ 03</span></div>
+          <h4>Nervous System Support</h4>
+          <p>Nervous System को Support करने में सहायक</p>
+          <div class="ben-bar"></div>
+        </div>
+      </div>
+
+      <div class="ben-panel" data-i="2">
+        <div class="ben-dot"></div>
+        <div class="ben-media"><img src="images/benefit-3.avif" alt="Learning & Focus Support"><span class="ben-tag">फायदा 03</span></div>
+        <div class="ben-content">
+          <div class="ben-frac">03 <span>/ 03</span></div>
+          <h4>Learning & Focus Support</h4>
+          <p>Learning एवं Focus को Support करने में सहायक</p>
+          <div class="ben-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INGREDIENTS — botanical specimen plates ============ -->
+  <section class="ingredients-sec" id="ingredients">
+   <div class="arch-grid-stage">
+
+    <!-- Header -->
+    <div class="arch-header">
+      <h2 class="arch-title">
+        प्राकृतिक जड़ी-बूटियों की शक्ति
+      </h2>
+    </div>
+
+    <!-- 2-Column Grid -->
+
+    <div class="arch-grid-container">
+
+      <!-- Herb 1: ब्राह्मी -->
+      <div class="arch-card-unit">
+        <div class="arch-img-wrapper">
+          <div class="arch-num-badge">01</div>
+
+          <div class="arch-mask-frame">
+            <img
+              src="images/brahmi.avif"
+              alt="ब्राह्मी">
+          </div>
+        </div>
+
+        <div class="arch-text-content">
+          <h3 class="arch-herb-name">🌱 ब्राह्मी</h3>
+
+          <p class="arch-herb-desc">
+            <highlight>Brain Function एवं Learning Support</highlight>
+            के लिए पारंपरिक रूप से उपयोग।
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Herb 2: शंखपुष्पी -->
+      <div class="arch-card-unit">
+        <div class="arch-img-wrapper">
+          <div class="arch-num-badge">02</div>
+
+          <div class="arch-mask-frame">
+            <img
+              src="images/shankhpushpi.avif"
+              alt="शंखपुष्पी">
+          </div>
+        </div>
+
+        <div class="arch-text-content">
+          <h3 class="arch-herb-name">🌱 शंखपुष्पी</h3>
+
+          <p class="arch-herb-desc">
+            <gold>Focus एवं Cognitive Function</gold>
+            को Support करने के लिए पारंपरिक उपयोग।
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Herb 3: अश्वगंधा -->
+      <div class="arch-card-unit">
+        <div class="arch-img-wrapper">
+          <div class="arch-num-badge">03</div>
+
+          <div class="arch-mask-frame">
+            <img
+              src="images/ashwagandha.avif"
+              alt="अश्वगंधा">
+          </div>
+        </div>
+
+        <div class="arch-text-content">
+          <h3 class="arch-herb-name">🌱 अश्वगंधा</h3>
+
+          <p class="arch-herb-desc">
+            <highlight>Nervous System एवं Stress Management Support</highlight>।
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Herb 4: जटामांसी -->
+      <div class="arch-card-unit">
+        <div class="arch-img-wrapper">
+          <div class="arch-num-badge">04</div>
+
+          <div class="arch-mask-frame">
+            <img
+              src="images/jatamansi.avif"
+              alt="जटामांसी">
+          </div>
+        </div>
+
+        <div class="arch-text-content">
+          <h3 class="arch-herb-name">🌱 जटामांसी</h3>
+
+          <p class="arch-herb-desc">
+            Brain Wellness एवं
+            <gold>Mental Calmness Support</gold>।
+          </p>
+        </div>
+      </div>
+
+
+      <!-- Herb 5: वचा -->
+      <div class="arch-card-unit">
+        <div class="arch-img-wrapper">
+          <div class="arch-num-badge">05</div>
+
+          <div class="arch-mask-frame">
+            <img
+              src="images/vacha.avif"
+              alt="वचा">
+          </div>
+        </div>
+
+        <div class="arch-text-content">
+          <h3 class="arch-herb-name">🌱 वचा</h3>
+
+          <p class="arch-herb-desc">
+            आयुर्वेद में <highlight>वाणी और तंत्रिका तंत्र</highlight>
+            के समर्थन के लिए पारंपरिक रूप से वर्णित।
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Footer Stamp -->
+    <div class="arch-footer-stamp">
+      🌿 100% शुद्ध एवं प्रमाणिक जड़ी-बूटियाँ
+    </div>
+
+  </div>
+  </section>
+
+  <!-- ============ CERTIFICATES — medallion badges (unchanged layout, no hover animation) ============ -->
+  <section class="cert-sec">
+    <div class="eyebrow">Trust & Quality</div>
+    <h2 class="title">Certificates & Trust</h2>
+    <div class="divider" style="color:var(--gold-light);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+    <div class="cert-grid">
+      <div class="cert-tile"><div class="img-box"><img src="images/certified-4.avif" alt="Quality Checked"></div><span>Quality Checked</span></div>
+      <div class="cert-tile"><div class="img-box"><img src="images/certified-1.avif" alt="Ayurvedic Formula"></div><span>Ayurvedic Formula</span></div>
+      <div class="cert-tile"><div class="img-box"><img src="images/certified-2.avif" alt="Natural Ingredients"></div><span>Natural Ingredients</span></div>
+      <div class="cert-tile"><div class="img-box"><img src="images/certified-3.avif" alt="Hygiene Standards"></div><span>Hygiene Standards</span></div>
+     
+    </div>
+  </section>
+
+  <!-- ============ DOCTOR — banner style ============ -->
+  <section class="doctor-sec">
+    <div class="eyebrow">Expert Backed</div>
+    <h2 class="title">विशेषज्ञों की देखरेख में तैयार Formula</h2>
+    <div class="divider" style="color:var(--gold);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="doctor-banner">
+      <div class="doctor-banner-img"><img src="images/doctor.avif" alt="Ayurvedic Expert"></div>
+      <div class="doctor-banner-overlay">
+        <div class="doc-name">Ayurvedic Formulation Team</div>
+        <div class="doc-role">Traditional Herbal Experts</div>
+      </div>
+    </div>
+
+    <div class="doctor-quote-card">
+      <span class="quote-mark">"</span>
+      <p class="quote">"यह Formula आयुर्वेद की पारंपरिक जानकारी और चुने गए Herbal Ingredients को ध्यान में रखकर तैयार किया गया है। Brain, Nervous System और Speech Development से जुड़ी Daily Routine को Support करने के लिए Quality और Safety को ध्यान में रखते हुए इसे बनाया गया है।"</p>
+    </div>
+  </section>
+
+  <!-- ============ HOW TO USE — connected vertical timeline ============ -->
+  <section class="how-sec">
+    <div class="eyebrow">Usage Guide</div>
+    <h2 class="title">कैसे उपयोग करें</h2>
+    <div class="divider" style="color:var(--gold-light);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+    <div class="timeline">
+      <div class="tstep"><div class="tnum">1</div><div class="img-box"><img src="images/htu-1.avif" alt="दिन में 2 बार"></div><div><h4>दिन में 2 बार</h4><p>नियमित रूप से दिन में 2 बार सेवन करें</p></div></div>
+      <div class="tstep"><div class="tnum">2</div><div class="img-box"><img src="images/htu-2.avif" alt="गुनगुने पानी या दूध"></div><div><h4>गुनगुने पानी या दूध</h4><p>गुनगुने पानी या दूध के साथ लें</p></div></div>
+      <div class="tstep"><div class="tnum">3</div><div class="img-box"><img src="images/htu-3.avif" alt="नियमित उपयोग"></div><div><h4>नियमित उपयोग</h4><p>नियमित उपयोग बेहतर Support दे सकता है</p></div></div>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE / AFTER — paired transformation rows ============ -->
+  <section class="ba-sec">
+    <div class="eyebrow">The Transformation</div>
+    <h2 class="title">पहले और बाद में</h2>
+    <div class="divider" style="color:var(--gold);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="ba-legend">
+      <span class="ba-pill before">पहले</span>
+      <i class="ti ti-arrow-right"></i>
+      <span class="ba-pill after">बाद में</span>
+    </div>
+
+    <div class="tf-row">
+      <div class="tf-side before"><div class="img-box"><img src="images/bf-1.avif" alt="शब्द साफ़ न बोल पाना"></div><h4>शब्द साफ़ न बोल पाना</h4></div>
+      <div class="tf-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="tf-side after"><div class="img-box"><img src="images/af-1.avif" alt="स्पष्ट बोलने की बेहतर कोशिश"></div><h4>स्पष्ट बोलने की बेहतर कोशिश</h4></div>
+    </div>
+    <div class="tf-row">
+      <div class="tf-side before"><div class="img-box"><img src="images/bf-2.avif" alt="Presentation से डर"></div><h4>Presentation से डर</h4></div>
+      <div class="tf-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="tf-side after"><div class="img-box"><img src="images/af-2.avif" alt="Confidence के साथ बोलना"></div><h4>Confidence के साथ बोलना</h4></div>
+    </div>
+    <div class="tf-row">
+      <div class="tf-side before"><div class="img-box"><img src="images/bf-3.avif" alt="दोस्तों के सामने झिझक"></div><h4>दोस्तों के सामने झिझक</h4></div>
+      <div class="tf-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="tf-side after"><div class="img-box"><img src="images/af-3.avif" alt="खुलकर बात करना"></div><h4>खुलकर बात करना</h4></div>
+    </div>
+    <div class="tf-row">
+      <div class="tf-side before"><div class="img-box"><img src="images/bf-4.avif" alt="Confidence की कमी"></div><h4>Confidence की कमी</h4></div>
+      <div class="tf-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="tf-side after"><div class="img-box"><img src="images/af-4.avif" alt="ज्यादा Confidence"></div><h4>ज्यादा Confidence</h4></div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER + ORDER FORM — merged into one highlighted section ============ -->
+  <section class="offer-sec" id="order-form">
+    <h2>जितनी जल्दी सही Care शुरू की जाती है, उतनी जल्दी बेहतर Support मिलने की संभावना बढ़ सकती है।</h2>
+   
+    <div class="order-card highlighted-order">
+      <div class="order-mini">
+        <div class="img-box"><img src="images/product.avif" alt="AyurVani Capsules"></div>
+        <div><span class="p-name">AyurVani Capsules</span><span class="p-sub">30 Capsules · 1 Bottle</span></div>
+      </div>
+
+      <form id="orderForm">
+        <!-- Ad attribution — filled automatically from the landing URL by captureUtmParams() -->
+        <input type="hidden" name="utm_source" />
+        <input type="hidden" name="utm_medium" />
+        <input type="hidden" name="utm_campaign" />
+        <input type="hidden" name="utm_campaign_id" />
+        <input type="hidden" name="utm_adset" />
+        <input type="hidden" name="utm_adset_id" />
+        <input type="hidden" name="utm_ad" />
+        <input type="hidden" name="utm_ad_id" />
+        <input type="hidden" name="utm_placement" />
+        <input type="hidden" name="fbclid" />
+        <input type="hidden" name="fbc" />
+        <input type="hidden" name="fbp" />
+
+        <div class="form-group">
+          <label for="fname">पूरा नाम</label>
+          <input type="text" id="fname" name="name" placeholder="जैसे: Rakesh Sharma" autocomplete="off" required>
+          <div class="form-error" id="nameError">कृपया केवल अक्षर (A-Z) दर्ज करें</div>
+        </div>
+        <div class="form-group">
+          <label for="fmobile">Mobile Number</label>
+          <input type="tel" id="fmobile" name="mobile" placeholder="9876543210" maxlength="10" autocomplete="off" required>
+          <div class="form-error" id="mobileError">कृपया 6-9 से शुरू होने वाला सही 10 अंकों का नंबर दर्ज करें</div>
+        </div>
+        <button type="submit" class="btn-submit">अभी Order Confirm करें</button>
+      </form>
+
+      <div class="order-trust">
+        <span><i class="ti ti-truck-delivery"></i> Free Delivery</span>
+        <span><i class="ti ti-shield-check"></i> 100% Safe</span>
+        <span><i class="ti ti-refresh"></i> Easy Returns</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testi-sec" id="reviews">
+    <div class="eyebrow">Real Stories</div>
+    <h2 class="title">वास्तविक अनुभव, वास्तविक बदलाव</h2>
+    <div class="divider" style="color:var(--gold-light);"><svg viewBox="0 0 120 20"><path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="60" cy="10" r="3" fill="currentColor"/></svg></div>
+
+    <div class="unique-card">
+      <div class="floating-avatar img-box"><img src="images/customer-1.avif" alt="रितु शर्मा"></div>
+      <div class="card-top-info">
+        <h3 class="customer-name">रितु शर्मा</h3>
+        <span class="customer-location">📍 जयपुर</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-desc">मेरा बेटा कुछ शब्दों का उच्चारण साफ़ नहीं कर पाता था, जिससे वह लोगों के सामने बोलने में झिझकता था। हमने विशेषज्ञ की सलाह, नियमित Speech Practice और AAYURVANI को उसकी Daily Wellness Routine का हिस्सा बनाया। कुछ समय बाद हमें उसके Confidence और Communication Practice में सकारात्मक बदलाव महसूस हुआ।</p>
+    </div>
+
+    <div class="unique-card">
+      <div class="floating-avatar img-box"><img src="images/customer-2.avif" alt="पूजा वर्मा"></div>
+      <div class="card-top-info">
+        <h3 class="customer-name">पूजा वर्मा</h3>
+        <span class="customer-location">📍 दिल्ली</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-desc">मेरी बेटी क्लास में बोलने से बचती थी क्योंकि उसे लगता था कि लोग उसकी बात पर हँसेंगे। हमने उसकी नियमित Practice जारी रखी और AAYURVANI को भी उसकी Routine में शामिल किया। अब वह पहले की तुलना में ज़्यादा आत्मविश्वास के साथ बोलने की कोशिश करती है।"</p>
+    </div>
+
+    <div class="unique-card">
+      <div class="floating-avatar img-box"><img src="images/customer-3.avif" alt="अमित सिंह"></div>
+      <div class="card-top-info">
+        <h3 class="customer-name">अमित सिंह</h3>
+        <span class="customer-location">📍 लखनऊ</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-desc">हम अपनी बेटी की Speech Development को लेकर चिंतित थे। डॉक्टर की सलाह और Speech Exercises के साथ हमने AAYURVANI को भी Daily Routine में शामिल किया। समय के साथ उसकी Learning Activities और Communication में सकारात्मक बदलाव देखने को मिले, जिससे हमारा विश्वास और बढ़ा।"</p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+ <section class="faq-sec" id="faq">
+    <div class="eyebrow">Questions?</div>
+    <h2 class="title">अक्सर पूछे जाने वाले सवाल</h2>
+    <div class="divider" style="color:var(--gold);">
+        <svg viewBox="0 0 120 20">
+            <path d="M2 10 Q30 2 60 10 T118 10" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <circle cx="60" cy="10" r="3" fill="currentColor"/>
+        </svg>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या AAYURVANI आयुर्वेदिक फ़ॉर्मूला है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। यह 100% आयुर्वेदिक जड़ी-बूटियों से तैयार फ़ॉर्मूला है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या इसे Daily Routine में शामिल किया जा सकता है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। नियमित Wellness Routine का हिस्सा बनाया जा सकता है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या AAYURVANI Brain Wellness को Support करता है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। यह Brain एवं Nervous System Wellness को Support करता है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या यह Learning & Focus को Support करता है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। यह Learning, Focus और Cognitive Wellness को Support करता है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या इसमें प्राकृतिक जड़ी-बूटियाँ हैं?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। इसमें पारंपरिक आयुर्वेदिक Herbs का संयोजन है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या इसका नियमित उपयोग किया जा सकता है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। इसे नियमित Wellness Routine में शामिल किया जा सकता है।</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+            क्या यह बच्चों के लिए बनाया गया है?
+            <i class="ti ti-chevron-down"></i>
+        </div>
+        <div class="faq-a">
+            <p>हाँ। इसे बच्चों की Brain Wellness Routine को ध्यान में रखकर तैयार किया गया है।</p>
+        </div>
+    </div>
+</section>
+
+  <!-- ============ DISCLAIMER ============ -->
+  <section class="disclaimer-sec">
+
+    <p>Disclaimer:AyurVani एक आयुर्वेदिक वेलनेस प्रोडक्ट है। यह किसी बीमारी का निदान, उपचार, इलाज या रोकथाम करने का दावा नहीं करता।
+   यदि आपके बच्चे को लगातार बोलने या Speech Development से संबंधित समस्या है, तो Speech-Language Pathologist या Pediatrician से परामर्श लें।
+   परिणाम व्यक्ति की उम्र, शरीर की स्थिति और उपयोग के तरीके के अनुसार अलग-अलग हो सकते हैं।</p>
+  </section>
+
+ 
+  <!-- POLICY LINKS -->
+      <div class="pl-wrap">
+        <div class="pl-row">
+          <button class="pl-link" onclick="openModal('privacy')">Privacy Policy</button>
+          <span class="pl-sep">|</span>
+          <button class="pl-link" onclick="openModal('terms')">Terms & Conditions</button>
+          <span class="pl-sep">|</span>
+          <button class="pl-link" onclick="openModal('shipping')">Shipping Policy</button>
+          <span class="pl-sep">|</span>
+          <button class="pl-link" onclick="openModal('cancel')">Cancellation Policy</button>
+          <span class="pl-sep">|</span>
+          <button class="pl-link" onclick="openModal('contact')">Contact Us</button>
+          <span class="pl-sep">|</span>
+          <button class="pl-link" onclick="openModal('disclaimer')">Legal Disclaimer</button>
+        </div>
+      </div>
+
+      <div class="pp-overlay" id="pp-overlay" onclick="closeIfOutside(event)">
+        <div class="pp-modal" id="pp-modal">
+          <button class="pp-close" onclick="closeModal()"><i class="ti ti-x" aria-hidden="true"></i></button>
+          <div id="pp-content"></div>
+        </div>
+      </div>
+   
+
+  <footer>© 2026 SS Herbal — AyurVani Capsules. All Rights Reserved.</footer>
+
+</div><!-- /.app -->
+
+<!-- ============ STICKY BOTTOM ORDER BAR ============ -->
+<div class="sticky-order" id="stickyOrder">
+  <div class="sticky-order-info">
+    <span class="sticky-order-label">AyurVani Capsules</span>
+    <span class="sticky-order-sub">Free Delivery · COD Available</span>
+  </div>
+  <a href="#order-form" class="sticky-order-btn"><i class="ti ti-shopping-cart-check"></i> Order करें</a>
+</div>
+
+<!-- ============ LOADING OVERLAY ============ -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <p>आपका Order Process हो रहा है...</p>
+  </div>
+</div>
+
+<script>
+/* ================= FAQ Toggle ================= */
+function toggleFaq(el){
+  const item = el.parentElement;
+  document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+
+/* ================= Why AyurVani — scroll reveal ================= */
+(function(){
+  var panels = document.querySelectorAll('.ben-panel');
+  var fill = document.getElementById('benFill');
+  if(!panels.length) return;
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+
+    entry.target.classList.add('is-visible');
+
+    var i = parseInt(entry.target.getAttribute('data-i'),10);
+
+    if(fill){
+        fill.style.height = (((i+1)/panels.length)*100)+'%';
+    }
+
+}else{
+
+    entry.target.classList.remove('is-visible');
+
+}
+      });
+    }, { threshold:0.35, rootMargin:'0px 0px -60px 0px' });
+    panels.forEach(function(el){ io.observe(el); });
+  } else {
+    panels.forEach(function(el){ el.classList.add('is-visible'); });
+    if(fill) fill.style.height = '100%';
+  }
+})();
+
+// PAIN
+(function(){
+
+  var rows = document.querySelectorAll('.pz-row');
+
+  if(!rows.length) return;
+
+  var io = new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+      if(entry.isIntersecting){
+
+        entry.target.classList.add('is-visible');
+
+      }else{
+
+        entry.target.classList.remove('is-visible');
+
+      }
+
+    });
+
+  },{
+    threshold:0.35,
+    rootMargin:'0px 0px -60px 0px'
+  });
+
+  rows.forEach(function(el){
+    io.observe(el);
+  });
+
+})();
+/* ================= Policy Modal Content ================= */
+ 
+
+var contents = {
+      privacy: `<div class="pp-mtitle"><i class="ti ti-shield-lock" aria-hidden="true"></i>Privacy Policy</div><div class="pp-mbadge">Last updated: June 2025</div><p class="pp-mpara">Ayurvani आपकी personal information की सुरक्षा को सर्वोच्च प्राथमिकता देता है। जब आप order करते हैं तो हम निम्नलिखित जानकारी एकत्र करते हैं:</p><ul class="pp-mlist"><li>नाम, मोबाइल नंबर और delivery address</li><li>Payment details (encrypted और secure)</li><li>Order history और purchase records</li></ul><div class="pp-mhl">आपकी जानकारी किसी third-party को नहीं बेची जाती। इसका उपयोग केवल order processing और delivery के लिए किया जाता है।</div><p class="pp-mpara">हम industry-standard SSL encryption का उपयोग करते हैं। किसी भी privacy concern के लिए हमसे contact करें।</p>`,
+      terms: `<div class="pp-mtitle"><i class="ti ti-file-description" aria-hidden="true"></i>Terms & Conditions</div><div class="pp-mbadge">Please read carefully</div><p class="pp-mpara">Ayurvani का उपयोग करके आप इन terms से सहमत होते हैं:</p><ul class="pp-mlist"><li>Product results व्यक्ति-दर-व्यक्ति अलग हो सकते हैं</li><li>यह product किसी बीमारी का इलाज नहीं है — wellness supplement है</li><li>18 वर्ष से कम आयु के व्यक्ति बिना guardian consent के order न करें</li><li>Fake/fraudulent orders के लिए legal action लिया जा सकता है</li><li>Product images केवल representation के लिए हैं</li></ul><div class="pp-mhl">Ayurvani किसी भी समय बिना prior notice के prices, offers या terms बदलने का अधिकार रखता है।</div>`,
+      shipping: `<div class="pp-mtitle"><i class="ti ti-truck-delivery" aria-hidden="true"></i>Shipping Policy</div><div class="pp-mbadge">Free Delivery All India</div><p class="pp-mpara">हम पूरे India में FREE shipping प्रदान करते हैं। Delivery timeline:</p><ul class="pp-mlist"><li>Metro cities (Delhi, Mumbai, Bengaluru): 3–5 business days</li><li>Tier-2 / Tier-3 cities: 5–7 business days</li><li>Remote / rural areas: 7–10 business days</li></ul><div class="pp-mhl">Order confirm होने के 24–48 घंटे के अंदर tracking number SMS/WhatsApp पर भेजा जाएगा।</div><ul class="pp-mlist"><li>Delivery attempt 3 बार की जाएगी — उसके बाद order वापस आ जाएगा</li><li>Incorrect address की जिम्मेदारी customer की होगी</li></ul>`,
+      cancel: `<div class="pp-mtitle"><i class="ti ti-refresh" aria-hidden="true"></i>Cancellation Policy</div><div class="pp-mbadge">7-Day Easy Return</div><p class="pp-mpara">आप order confirm होने के <strong>24 घंटे के अंदर</strong> cancellation request कर सकते हैं।</p><ul class="pp-mlist"><li>Order dispatch होने के बाद cancellation संभव नहीं</li><li>Damaged या wrong product मिलने पर 7 दिन के अंदर complaint करें</li><li>Opened/used products return नहीं किए जाएंगे</li><li>Refund 5–7 business days में original payment method पर</li></ul><div class="pp-mhl">Return के लिए product original packaging में होना ज़रूरी है। Unboxing video होने पर claim जल्दी process होता है।</div>`,
+      contact: `<div class="pp-mtitle"><i class="ti ti-headset" aria-hidden="true"></i>Contact Us</div><p class="pp-mpara">हमारी team आपकी मदद के लिए Available है — सोमवार से शनिवार, सुबह 9 बजे से शाम 6 बजे तक।</p><div class="pp-cgrid"><div class="pp-citem"><i class="ti ti-phone" aria-hidden="true"></i><div class="pp-clbl">Call / WhatsApp</div><div class="pp-cval">+918860606078</div></div><div class="pp-citem"><i class="ti ti-mail" aria-hidden="true"></i><div class="pp-clbl">Email</div><div class="pp-cval">support@ssherbalindia.com</div></div><div class="pp-citem"><i class="ti ti-clock" aria-hidden="true"></i><div class="pp-clbl">Support Hours</div><div class="pp-cval">Mon–Sat 9am–6pm</div></div><div class="pp-citem"><i class="ti ti-message-circle" aria-hidden="true"></i><div class="pp-clbl">Response Time</div><div class="pp-cval">Within 24 hours</div></div></div>`,
+      disclaimer: `<div class="pp-mtitle"><i class="ti ti-alert-circle" aria-hidden="true"></i>Legal Disclaimer</div><div class="pp-mbadge">Important Notice</div><p class="pp-mpara">Ayurvani एक natural wellness supplement है। इस product के बारे में निम्नलिखित बातें ध्यान में रखें:</p><ul class="pp-mlist"><li>यह product किसी भी बीमारी का diagnosis, treatment, cure या prevention नहीं करता</li><li>Results individual to individual अलग हो सकते हैं</li><li>यह product FSSAI guidelines के अनुसार एक food supplement है, drug नहीं</li><li>किसी भी medical condition में उपयोग से पहले doctor से परामर्श करें</li><li>Pregnant, nursing women या किसी chronic illness वाले व्यक्ति पहले physician से consult करें</li></ul><div class="pp-mhl">Website पर दिए गए statements को Food & Drug Administration द्वारा evaluate नहीं किया गया है। यह product किसी disease को diagnose, treat, cure या prevent करने के लिए नहीं है।</div><p class="pp-mpara">Product की images, descriptions और testimonials केवल illustrative purpose के लिए हैं। Ayurvani किसी भी indirect या consequential loss के लिए उत्तरदायी नहीं है।</p>`
+    };
+
+  
+    function openModal(key) {
+      document.getElementById('pp-content').innerHTML = contents[key];
+      document.getElementById('pp-overlay').classList.add('show');
+    }
+    function closeModal() {
+      document.getElementById('pp-overlay').classList.remove('show');
+    }
+    function closeIfOutside(e) {
+      if (e.target === document.getElementById('pp-overlay')) closeModal();
+    }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js');
+    });
+  }
+/* ================= STICKY ORDER BUTTON — hide near order form ================= */
+const stickyBtn = document.getElementById('stickyOrder');
+const orderFormSection = document.getElementById('order-form');
+let heroSeen = false;
+const heroObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting){ heroSeen = true; }
+  });
+}, {threshold:0});
+heroObserver.observe(document.getElementById('home'));
+
+const orderObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      stickyBtn.classList.remove('show');
+    } else if(heroSeen){
+      stickyBtn.classList.add('show');
+    }
+  });
+}, {threshold:0.15});
+orderObserver.observe(orderFormSection);
+
+/* ================= AD ATTRIBUTION (UTM) ================= */
+// Meta/Google drop UTM params on the landing URL, but they're lost on reload
+// or once the URL is cleaned — so stash them in sessionStorage on first view
+// and read from there at submit time.
+var UTM_KEYS = [
+  'utm_source', 'utm_medium',
+  'utm_campaign', 'utm_campaign_id',
+  'utm_adset', 'utm_adset_id',
+  'utm_ad', 'utm_ad_id',
+  'utm_placement'
+];
+
+function setHiddenField(name, value){
+  var input = document.querySelector('#orderForm input[name="' + name + '"]');
+  if(input) input.value = value || '';
+}
+
+function readCookieValue(name){
+  var match = document.cookie.match(new RegExp('(^|;\\s*)' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[2]) : '';
+}
+
+function stickyAttrValue(key, fromUrl){
+  if(fromUrl){
+    try{ sessionStorage.setItem(key, fromUrl); }catch(e){ /* private mode */ }
+    return fromUrl;
+  }
+  try{ return sessionStorage.getItem(key) || ''; }catch(e){ return ''; }
+}
+
+function captureUtmParams(){
+  var urlParams = new URLSearchParams(window.location.search);
+
+  UTM_KEYS.forEach(function(key){
+    setHiddenField(key, stickyAttrValue(key, urlParams.get(key)));
+  });
+
+  // Meta click ID — present only on the first landing URL, so persist it.
+  var fbclid = stickyAttrValue('fbclid', urlParams.get('fbclid'));
+  setHiddenField('fbclid', fbclid);
+
+  // _fbc cookie is set by the Meta pixel itself; build it from fbclid as a
+  // fallback in case the pixel script was blocked or hasn't run yet.
+  var fbc = readCookieValue('_fbc');
+  if(!fbc && fbclid){ fbc = stickyAttrValue('fbc', 'fb.1.' + Date.now() + '.' + fbclid); }
+  setHiddenField('fbc', fbc);
+  setHiddenField('fbp', readCookieValue('_fbp'));
+}
+
+captureUtmParams();
+
+/* ================= ORDER FORM LOGIC ================= */
+// ⚠️ Apni Google Apps Script Web App URL yahan paste karein
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPu4q0dvwQFtT0dHzpdSx4076EU2SfjhiSOnYq6VFsq6MoSrj0FF3XKAluxn6dR7bAIg/exec";
+
+const nameInput = document.getElementById('fname');
+const mobileInput = document.getElementById('fmobile');
+const nameError = document.getElementById('nameError');
+const mobileError = document.getElementById('mobileError');
+
+nameInput.addEventListener('input', function(){
+  this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+  nameError.style.display = 'none';
+});
+
+mobileInput.addEventListener('input', function(){
+  this.value = this.value.replace(/[^0-9]/g, '').slice(0,10);
+  mobileError.style.display = 'none';
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = nameInput.value.trim();
+  const mobile = mobileInput.value.trim();
+
+  let valid = true;
+  if(!/^[a-zA-Z\s]{3,}$/.test(name)){ nameError.style.display = 'block'; valid = false; }
+  if(!/^[6-9][0-9]{9}$/.test(mobile)){ mobileError.style.display = 'block'; valid = false; }
+  if(!valid) return;
+
+  document.getElementById('app-root').classList.add('blurred');
+  document.getElementById('loadingOverlay').classList.add('show');
+  stickyBtn.classList.remove('show');
+
+  // Re-capture attribution in case this page was open before storage was set
+  captureUtmParams();
+
+  const formData = new FormData(document.getElementById('orderForm'));
+  formData.set('name', name);
+  formData.set('mobile', mobile);
+  formData.append('product', 'AyurVani Capsules');
+  formData.append('timestamp', new Date().toLocaleString('en-IN'));
+
+  fetch(GOOGLE_SCRIPT_URL, { method:'POST', mode:'no-cors', body: formData })
+  .catch(function(err){ console.log('Submission note:', err); })
+  .finally(function(){
+    setTimeout(function(){
+      document.getElementById('orderForm').reset();
+      window.location.href = "Thankyou.html";
+    }, 1800);
+  });
+});
+</script>
+</body>
+</html>

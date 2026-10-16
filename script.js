@@ -38,6 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 11. Setup Weekly Progress Check Timeline Animation
   setupWeeklyTimelineAnimation();
+
+  // 12. Setup Hero Speech Animation (Stutter to Smooth)
+  setupHeroSpeechAnimation();
+
+  // 13. Setup Before / After Drag Slider
+  setupBeforeAfterSlider();
+
+  // 14. Setup Scroll-Drawn Dynamic Timeline Path
+  setupScrollDrawnTimeline();
 });
 
 function setupScrollReveal() {
@@ -253,53 +262,56 @@ function setupFaqAccordion() {
   });
 }
 
-/* ================= 4. SETUP STICKY BOTTOM BAR ================= */
+/* ================= 4. SETUP STICKY BOTTOM BAR (ALWAYS PINNED) ================= */
 function setupStickyBar() {
   const stickyBar = document.getElementById('stickyBottomBar');
-  const heroSection = document.getElementById('heroHook') || document.getElementById('heroShowcase') || document.getElementById('heroSection');
-  const checkoutSection = document.getElementById('ayurCheckout') || document.getElementById('orderCardWrapper');
-
-  if (!stickyBar || !heroSection) return;
-
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY || window.pageYOffset;
-    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - 80;
-
-    let inCheckout = false;
-    if (checkoutSection) {
-      const checkoutTop = checkoutSection.offsetTop - 180;
-      const checkoutBottom = checkoutSection.offsetTop + checkoutSection.offsetHeight;
-      if (scrollPos >= checkoutTop && scrollPos <= checkoutBottom) {
-        inCheckout = true;
-      }
-    }
-
-    if (scrollPos > heroBottom && !inCheckout) {
-      stickyBar.classList.add('active');
-    } else {
-      stickyBar.classList.remove('active');
-    }
-  }, { passive: true });
+  if (stickyBar) {
+    stickyBar.classList.add('active');
+  }
 }
 
-/* ================= 5. SETUP INTERACTIVE SYMPTOM CHECKLIST ================= */
+/* ================= 5. SETUP INTERACTIVE SYMPTOM CHECKLIST & RESULT METER ================= */
 window.toggleCheckRow = function (el) {
   el.classList.toggle('checked');
+  updateSymptomProgress();
+};
+
+function updateSymptomProgress() {
   const checkedRows = document.querySelectorAll('.ayur-checklist-row.checked');
+  const count = checkedRows.length;
   const selectedList = [];
+
   checkedRows.forEach(row => {
     const textEl = row.querySelector('.ayur-check-text');
     if (textEl) selectedList.push(textEl.textContent.replace(/^✓\s*/, '').trim());
   });
-  const countBadge = document.getElementById('symptomCounterPill');
-  if (countBadge) {
-    countBadge.textContent = `${checkedRows.length}/7 संकेत चुने गए`;
+
+  // Animate the 7 Dynamic Voice Spectrum Bars
+  const spectrumBars = document.querySelectorAll('#symptomSpectrumWrap .spectrum-bar');
+  spectrumBars.forEach((bar, idx) => {
+    if (idx < count) {
+      bar.classList.add('active');
+    } else {
+      bar.classList.remove('active');
+    }
+  });
+
+  // Update text pill: 0/7 संकेत चुने गए
+  const counterText = document.getElementById('symptomCounterText');
+  if (counterText) {
+    counterText.textContent = `${count}/7 संकेत चुने गए`;
+  } else {
+    const countBadge = document.getElementById('symptomCounterPill');
+    if (countBadge) {
+      countBadge.innerHTML = `<span class="ayur-pill-pulse-dot"></span> <span class="ayur-pill-text-val">${count}/7 संकेत चुने गए</span>`;
+    }
   }
+
   const hiddenSymptoms = document.getElementById('hiddenSelectedSymptoms');
   if (hiddenSymptoms) {
     hiddenSymptoms.value = selectedList.join(', ');
   }
-};
+}
 
 function setupSymptomChecklist() {
   const symptomCards = document.querySelectorAll('.ayur-impact-card, .ayur-diagnostic-card');
@@ -358,16 +370,18 @@ function setupSymptomChecklist() {
 
 /* ================= 6. SETUP SPEECH WAVEFORM ANIMATION ================= */
 function setupWaveformInteraction() {
-  const waveform = document.getElementById('speechWaveform');
+  const waveform = document.getElementById('speechSoundWave');
   if (!waveform) return;
 
   waveform.addEventListener('click', () => {
-    const bars = waveform.querySelectorAll('.ayur-wave-bar');
+    waveform.classList.add('wave-speaking');
+    const bars = waveform.querySelectorAll('.wave-bar, span');
     bars.forEach(bar => {
-      bar.style.animationDuration = '0.5s';
+      bar.style.animationDuration = '0.45s';
       setTimeout(() => {
-        bar.style.animationDuration = '1.4s';
-      }, 2500);
+        bar.style.animationDuration = '';
+        waveform.classList.remove('wave-speaking');
+      }, 2000);
     });
   });
 }
@@ -650,5 +664,252 @@ function setupWeeklyTimelineAnimation() {
       playAnimation();
     });
   }
+}
+
+/* ================= 12. HERB TAP-TO-FLIP 3D CONTROLLER ================= */
+window.toggleHerbFlip = function (card) {
+  if (!card) return;
+  const isFlipped = card.classList.toggle('is-flipped');
+  card.setAttribute('aria-expanded', isFlipped ? 'true' : 'false');
+};
+
+document.addEventListener('keydown', (e) => {
+  if (e.target && e.target.classList && e.target.classList.contains('ayur-flip-card')) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.toggleHerbFlip(e.target);
+    }
+  }
+});
+
+/* ================= 13. HERO STUTTER-TO-SMOOTH TYPEWRITER ANIMATION ================= */
+function setupHeroSpeechAnimation() {
+  const textEl1 = document.getElementById('speechAnimatedText1') || document.getElementById('speechAnimatedText');
+  const textEl2 = document.getElementById('speechAnimatedText2');
+  const cursor1 = document.getElementById('speechCursor1') || document.getElementById('speechCursor');
+  const cursor2 = document.getElementById('speechCursor2');
+  const bubble1 = document.getElementById('speechBubbleDynamic1') || document.getElementById('speechBubbleDynamic');
+  const bubble2 = document.getElementById('speechBubbleDynamic2');
+  const soundWave = document.getElementById('speechSoundWave');
+
+  if (!textEl1) return;
+
+  // Stutter hesitation steps for Line 1: "म-म-मेरा नाम…"
+  const stutterStages1 = [
+    { text: '“म', hesitateMs: 500 },
+    { text: '“म-म', hesitateMs: 550 },
+    { text: '“म-म-म', hesitateMs: 240 },
+    { text: '“म-म-मेरा ', hesitateMs: 400 },
+    { text: '“म-म-मेरा नाम…”', hesitateMs: 380 }
+  ];
+
+  // Stutter hesitation steps for Line 2: "पा-पा-पानी…"
+  const stutterStages2 = [
+    { text: '“पा', hesitateMs: 520 },
+    { text: '“पा-पा', hesitateMs: 580 },
+    { text: '“पा-पा-प', hesitateMs: 250 },
+    { text: '“पा-पा-पानी…”', hesitateMs: 4500 }
+  ];
+
+  function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function typeSyllable(el, targetString, speed = 55) {
+    const current = el.textContent || '';
+    if (soundWave) {
+      soundWave.classList.add('wave-speaking');
+      soundWave.classList.remove('wave-pause');
+    }
+    for (let i = current.length + 1; i <= targetString.length; i++) {
+      el.textContent = targetString.slice(0, i);
+      await wait(speed);
+    }
+  }
+
+  async function playStutterOnElement(el, cursorEl, bubbleEl, stages) {
+    if (cursorEl) cursorEl.style.display = 'inline-block';
+    el.textContent = '“';
+    await wait(220);
+
+    for (let i = 0; i < stages.length; i++) {
+      const stage = stages[i];
+
+      // Type characters smoothly
+      await typeSyllable(el, stage.text, i === 0 ? 80 : 50);
+
+      // Hesitate during pause (अटकना / हकलाहट)
+      if (i < stages.length - 1) {
+        if (bubbleEl) bubbleEl.classList.add('hesitating');
+        if (soundWave) {
+          soundWave.classList.remove('wave-speaking');
+          soundWave.classList.add('wave-pause');
+        }
+        await wait(stage.hesitateMs);
+        if (bubbleEl) bubbleEl.classList.remove('hesitating');
+      } else {
+        if (bubbleEl) bubbleEl.classList.remove('hesitating');
+        if (soundWave) {
+          soundWave.classList.remove('wave-speaking');
+          soundWave.classList.add('wave-pause');
+        }
+        await wait(stage.hesitateMs);
+      }
+    }
+
+    if (cursorEl) cursorEl.style.display = 'none';
+  }
+
+  async function eraseBoth(el1, el2) {
+    if (soundWave) soundWave.classList.add('wave-pause');
+    const t1 = el1 ? el1.textContent : '';
+    const t2 = el2 ? el2.textContent : '';
+    const maxLen = Math.max(t1.length, t2.length);
+
+    for (let i = maxLen; i >= 1; i--) {
+      if (el1 && t1.length >= i && i > 1) {
+        el1.textContent = t1.slice(0, i - 1);
+      }
+      if (el2 && t2.length >= i && i > 1) {
+        el2.textContent = t2.slice(0, i - 1);
+      }
+      await wait(22);
+    }
+    if (el1) el1.textContent = '“';
+    if (el2) el2.textContent = '“';
+  }
+
+  async function runCycle() {
+    while (true) {
+      // 1. Initial Reset
+      textEl1.textContent = '“';
+      if (cursor1) cursor1.style.display = 'inline-block';
+      if (textEl2) {
+        textEl2.textContent = '“';
+        if (cursor2) cursor2.style.display = 'none';
+      }
+
+      if (soundWave) {
+        soundWave.classList.remove('wave-speaking');
+        soundWave.classList.add('wave-pause');
+      }
+      if (bubble1) bubble1.classList.remove('hesitating');
+      if (bubble2) bubble2.classList.remove('hesitating');
+      await wait(450);
+
+      // 2. Play Line 1: “म-म-मेरा नाम…”
+      await playStutterOnElement(textEl1, cursor1, bubble1, stutterStages1);
+
+      // 3. Play Line 2 (if present): “पा-पा-पानी…”
+      if (textEl2) {
+        await wait(280);
+        await playStutterOnElement(textEl2, cursor2, bubble2, stutterStages2);
+      } else {
+        await wait(4000);
+      }
+
+      // 4. Erase both smoothly before looping
+      await eraseBoth(textEl1, textEl2);
+      await wait(400);
+    }
+  }
+
+  runCycle();
+}
+
+/* ================= 14. BEFORE / AFTER TOUCH & DRAG SLIDER ================= */
+function setupBeforeAfterSlider() {
+  const container = document.getElementById('baComparisonSlider');
+  const beforeLayer = document.getElementById('sliderBeforeLayer');
+  const handle = document.getElementById('sliderHandle');
+  const rangeInput = document.getElementById('sliderRangeInput');
+
+  if (!container || !beforeLayer || !handle || !rangeInput) return;
+
+  function updateSlider(percent) {
+    percent = Math.max(0, Math.min(100, percent));
+    beforeLayer.style.width = `${percent}%`;
+    handle.style.left = `${percent}%`;
+  }
+
+  // Sync with native range input (handles mouse and touch instantly)
+  rangeInput.addEventListener('input', (e) => {
+    updateSlider(e.target.value);
+  });
+
+  // Direct mouse & touch support on container
+  let isDragging = false;
+
+  function handleMove(clientX) {
+    const rect = container.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percent = (x / rect.width) * 100;
+    updateSlider(percent);
+    rangeInput.value = percent;
+  }
+
+  container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    handleMove(e.clientX);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    handleMove(e.clientX);
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  container.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches[0]) {
+      handleMove(e.touches[0].clientX);
+    }
+  }, { passive: true });
+
+  container.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches[0]) {
+      handleMove(e.touches[0].clientX);
+    }
+  }, { passive: true });
+
+  // Initialize at 50%
+  updateSlider(50);
+}
+
+/* ================= 15. SCROLL-DRAWN DYNAMIC TIMELINE ================= */
+function setupScrollDrawnTimeline() {
+  const timeline = document.getElementById('routineTimelineV2');
+  const trackFill = document.getElementById('routineTrackFill');
+  if (!timeline || !trackFill) return;
+
+  const rows = timeline.querySelectorAll('.ayur-timeline-step-row');
+
+  function onScroll() {
+    const rect = timeline.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    // Start drawing when timeline enters 75% of viewport
+    const triggerPoint = windowH * 0.75;
+    const progress = Math.max(0, Math.min(1, (triggerPoint - rect.top) / rect.height));
+
+    trackFill.style.height = `${progress * 100}%`;
+
+    // Activate individual rows as the line reaches them
+    rows.forEach(row => {
+      const rowRect = row.getBoundingClientRect();
+      if (rowRect.top < triggerPoint + 40) {
+        row.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(onScroll);
+  }, { passive: true });
+
+  // Initial check
+  onScroll();
 }
 

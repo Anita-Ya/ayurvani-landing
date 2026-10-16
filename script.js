@@ -606,7 +606,7 @@ function setupInstantJumps() {
   });
 }
 
-/* ================= 11. WEEKLY PROGRESS TIMELINE STEP ANIMATION ================= */
+/* ================= 11. WEEKLY PROGRESS TIMELINE STEP ANIMATION (CONTINUOUS LOOP) ================= */
 function setupWeeklyTimelineAnimation() {
   const timeline = document.getElementById('weeklyProgressTimeline');
   const trackFill = document.getElementById('wpTrackFill');
@@ -614,54 +614,152 @@ function setupWeeklyTimelineAnimation() {
   if (!timeline) return;
 
   const rows = timeline.querySelectorAll('.ayur-wp-row');
+  if (!rows.length) return;
 
-  function playAnimation() {
-    // Reset states
-    if (trackFill) trackFill.classList.remove('active');
-    rows.forEach(row => row.classList.remove('active'));
+  let loopTimeout = null;
+  let stepTimeouts = [];
+  let isHovered = false;
+  let isVisible = false;
 
-    // Force layout reflow
-    void timeline.offsetWidth;
-
-    // Animate connector track fill
-    if (trackFill) {
-      setTimeout(() => {
-        trackFill.classList.add('active');
-      }, 50);
+  function clearAllTimers() {
+    if (loopTimeout) {
+      clearTimeout(loopTimeout);
+      loopTimeout = null;
     }
-
-    // Animate each week step sequentially
-    rows.forEach((row, idx) => {
-      setTimeout(() => {
-        row.classList.add('active');
-      }, 150 + idx * 300);
-    });
+    stepTimeouts.forEach(t => clearTimeout(t));
+    stepTimeouts = [];
   }
 
-  // Auto-play when scrolled into view
+  function playAnimationCycle() {
+    clearAllTimers();
+
+    // 1. Reset state instantly before starting new cycle
+    if (trackFill) {
+      trackFill.classList.add('is-resetting');
+      trackFill.classList.remove('active');
+      void trackFill.offsetHeight; // force layout reflow
+      trackFill.classList.remove('is-resetting');
+    }
+    rows.forEach(row => row.classList.remove('active'));
+    void timeline.offsetWidth; // force layout reflow
+
+    // 2. Animate connector track fill smoothly
+    if (trackFill) {
+      const tTrack = setTimeout(() => {
+        trackFill.classList.add('active');
+      }, 80);
+      stepTimeouts.push(tTrack);
+    }
+
+    // 3. Sequentially animate each week step (Week 1 -> 2 -> 3 -> 4)
+    rows.forEach((row, idx) => {
+      const tRow = setTimeout(() => {
+        row.classList.add('active');
+      }, 180 + idx * 360);
+      stepTimeouts.push(tRow);
+    });
+
+    // 4. Hold active glowing display for ~3.6s so users can comfortably read all details.
+    // Total cycle duration before next loop: ~5.3 seconds.
+    const cycleTotalMs = 180 + (rows.length - 1) * 360 + 3600;
+
+    loopTimeout = setTimeout(() => {
+      if (!isVisible) return; // Don't loop if scrolled out of view
+
+      if (isHovered) {
+        // If user is hovering or reading, pause reset and check again soon
+        scheduleNextCheck(1500);
+        return;
+      }
+
+      // Smoothly fade out rows before next cycle
+      rows.forEach(row => row.classList.remove('active'));
+      if (trackFill) trackFill.classList.remove('active');
+
+      // Wait 400ms for smooth fade out, then restart cycle
+      loopTimeout = setTimeout(() => {
+        if (isVisible && !isHovered) {
+          playAnimationCycle();
+        }
+      }, 420);
+    }, cycleTotalMs);
+  }
+
+  function scheduleNextCheck(delayMs) {
+    clearTimeout(loopTimeout);
+    loopTimeout = setTimeout(() => {
+      if (isVisible && !isHovered) {
+        playAnimationCycle();
+      } else if (isVisible && isHovered) {
+        scheduleNextCheck(1500);
+      }
+    }, delayMs);
+  }
+
+  // Hover & Touch listeners: Pause while user hovers, resume when mouse leaves
+  timeline.addEventListener('mouseenter', () => {
+    isHovered = true;
+    if (trackFill) trackFill.classList.add('active');
+    rows.forEach(row => row.classList.add('active'));
+  });
+
+  timeline.addEventListener('mouseleave', () => {
+    isHovered = false;
+    scheduleNextCheck(2200);
+  });
+
+  timeline.addEventListener('touchstart', () => {
+    isHovered = true;
+  }, { passive: true });
+
+  timeline.addEventListener('touchend', () => {
+    setTimeout(() => {
+      isHovered = false;
+      scheduleNextCheck(2500);
+    }, 1000);
+  }, { passive: true });
+
+  // Interactive click on any row for instant response
+  rows.forEach(row => {
+    row.addEventListener('click', () => {
+      const node = row.querySelector('.ayur-wp-node');
+      if (node) {
+        node.style.transform = 'scale(1.22)';
+        node.style.boxShadow = '0 0 22px rgba(245, 186, 66, 0.95)';
+        setTimeout(() => {
+          node.style.transform = '';
+          node.style.boxShadow = '';
+        }, 380);
+      }
+    });
+  });
+
+  // IntersectionObserver: Animate whenever in view, pause when scrolled away
   if ('IntersectionObserver' in window) {
-    let hasPlayed = false;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !hasPlayed) {
-          hasPlayed = true;
-          playAnimation();
+        if (entry.isIntersecting) {
+          isVisible = true;
+          playAnimationCycle();
+        } else {
+          isVisible = false;
+          clearAllTimers();
         }
       });
     }, { threshold: 0.15 });
+
     observer.observe(timeline);
   } else {
-    playAnimation();
+    isVisible = true;
+    playAnimationCycle();
   }
 
-  // "Animation dobara dekho" replay button
+  // Replay button support (if present)
   if (replayBtn) {
     replayBtn.addEventListener('click', () => {
       replayBtn.classList.add('spinning');
-      setTimeout(() => {
-        replayBtn.classList.remove('spinning');
-      }, 700);
-      playAnimation();
+      setTimeout(() => replayBtn.classList.remove('spinning'), 700);
+      playAnimationCycle();
     });
   }
 }

@@ -3664,6 +3664,12 @@ body {
   height: 100%;
 }
 
+.ayur-wp-track-fill.is-resetting {
+  transition: none !important;
+  height: 0% !important;
+  opacity: 0 !important;
+}
+
 .ayur-wp-row {
   display: flex;
   align-items: center;
@@ -6961,6 +6967,12 @@ a.ayur-gold-action-btn {
 .ayur-guidance-deck .ayur-wp-track-fill {
   background: linear-gradient(to bottom, #F5BA42 0%, #D8982E 100%) !important;
   box-shadow: 0 0 12px rgba(245, 186, 66, 0.8) !important;
+}
+
+.ayur-guidance-deck .ayur-wp-track-fill.is-resetting {
+  transition: none !important;
+  height: 0% !important;
+  opacity: 0 !important;
 }
 
 .ayur-guidance-deck .ayur-wp-node {

@@ -15,12 +15,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Halant:wght@500;600;700&family=Hind:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Cinzel:wght@600;700;800&family=Great+Vibes&family=Halant:wght@500;600;700&family=Hind:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 
   <!-- Custom Modern Design Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026.70">
+  <link rel="stylesheet" href="styles.css?v=2026.187">
 </head>
 
 <body>
@@ -35,26 +35,47 @@
       <section class="ayur-p1-hero" id="heroHook">
         <!-- 🌿 AyurVani -->
         <div class="ayur-brand-top-pill ayur-reveal">
-          <span>🌿 AyurVani</span>
+          <span class="ayur-brand-icon">🌿</span>
+          <span class="ayur-brand-name-text">AyurVani</span>
         </div>
 
         <!-- क्या आपका बच्चा भी बोलते समय हकलाता है? -->
-        <h1 class="ayur-p1-main-title ayur-reveal">क्या आपका बच्चा भी बोलते समय हकलाता है?</h1>
+        <h1 class="ayur-p1-main-title ayur-reveal">क्या आपका बच्चा भी<br>बोलते समय हकलाता है?</h1>
 
-        <!-- Emotional Speech Hesitation Box with Animated Voice Soundwave & Context Image -->
-        <div class="ayur-speech-box ayur-reveal">
+        <!-- Emotional Speech Hesitation Box with Animated Voice Soundwave & Interactive Speech Demo -->
+        <div class="ayur-speech-box ayur-reveal" id="heroSpeechBox">
           <div class="ayur-stutter-visual-frame">
             <img src="images/problem-4.avif" onerror="this.src='images/bf-1.avif'"
               alt="क्या आपका बच्चा भी बोलते समय हकलाता है?" class="ayur-stutter-hero-img">
           </div>
-          <div class="ayur-sound-wave-wrap" title="Speech Voice Rhythm">
-            <span></span><span></span><span class="break"></span><span
-              class="break"></span><span></span><span></span><span class="break"></span><span></span>
+
+          <!-- Animated Voice Waveform Rhythm -->
+          <div class="ayur-sound-wave-wrap wave-stutter-mode" id="speechSoundWave" title="Speech Voice Rhythm">
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
+            <span class="wave-bar"></span>
           </div>
-          <div class="ayur-speech-bubbles">
-            <div class="ayur-stutter-chip">“म-म-मेरा नाम…”</div>
-            <div class="ayur-stutter-chip">“पा-पा-पानी…”</div>
+
+          <!-- Speech Bubbles (Exact Google Doc Content) -->
+          <div class="ayur-speech-bubbles" id="heroLiveSpeechDemo">
+            <div class="ayur-stutter-chip ayur-speech-bubble-dynamic" id="speechBubbleDynamic1">
+              <span id="speechAnimatedText1" class="speech-typed-text">“म-म-मेरा नाम…”</span><span
+                class="speech-typing-cursor" id="speechCursor1">|</span>
+            </div>
+            <div class="ayur-stutter-chip ayur-speech-bubble-dynamic" id="speechBubbleDynamic2">
+              <span id="speechAnimatedText2" class="speech-typed-text">“पा-पा-पानी…”</span><span
+                class="speech-typing-cursor" id="speechCursor2">|</span>
+            </div>
           </div>
+
           <p class="ayur-stutter-explanation">
             बच्चा मन में पूरी बात जानता है,<br>
             बस शब्द बोलते समय हकलाहट होने लगती है।
@@ -67,6 +88,14 @@
             हर बार जब बच्चा हकलापन के डर से बोलने से पहले रुकता है,<br>
             तब माँ-बाप के मन में एक सवाल जरूर आता है—
           </p>
+
+          <div class="ayur-parent-media-frame">
+            <img
+              src="../../../../.gemini/antigravity-ide/brain/23acfbd3-3123-4fee-91ea-e2f4f2ca6113/hesitant_child_worried_mom_1792135097292.jpg"
+              onerror="this.src='images/bf-2.avif'" alt="मेरा बच्चा कब बिना झिझक अपनी बात कह पाएगा?"
+              class="ayur-parent-media-img" loading="eager">
+          </div>
+
           <h2 class="ayur-parent-question">“मेरा बच्चा कब बिना झिझक अपनी बात कह पाएगा?”</h2>
           <p class="ayur-parent-note">
             अगर आपके बच्चे को भी बोलते समय हकलापन, शब्द दोहराने या रुकने की परेशानी होती है, तो उसके हकलापन को समझना और
@@ -77,13 +106,21 @@
         <!-- AyurVani Support Teaser Box -->
         <div class="ayur-teaser-box ayur-reveal">
           <div class="ayur-teaser-badge">
-            <span>🌿 AyurVani</span>
+            <span class="ayur-brand-icon">🌿</span>
+            <span class="ayur-brand-text">AyurVani</span>
           </div>
+
+          <div class="ayur-teaser-media-frame">
+            <img src="images/product.avif" alt="AyurVani Ayurvedic Herbal Support" class="ayur-teaser-prod-img"
+              loading="lazy">
+          </div>
+
           <p class="ayur-teaser-tagline">
             हकलापन से जुड़ी daily speech & wellness routine के लिए Ayurvedic Herbal Support
           </p>
+
           <a href="#ayurSupportSec" class="ayur-gold-action-btn">
-            <span>[अपने बच्चे के लिए AyurVani जानें→]</span>
+            <span class="ayur-btn-text">अपने बच्चे के लिए AyurVani जानें →</span>
           </a>
         </div>
 
@@ -94,56 +131,76 @@
             <p class="ayur-checklist-sub">
               जब बच्चा बार-बार हकलाता है, तो कुछ बच्चों में इसका असर उनकी daily communication पर भी दिखाई दे सकता है।
             </p>
-            <div class="ayur-checklist-counter-pill" id="symptomCounterPill">0/7 संकेत चुने गए</div>
+
           </div>
 
-          <div class="ayur-checklist-items">
+          <div class="ayur-checklist-items ayur-symptoms-2col-grid">
             <!-- 1. बोलते समय शब्द दोहराता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-1.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-1.avif" alt="बोलते समय शब्द दोहराता है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">बोलते समय शब्द दोहराता है?</div>
             </div>
 
             <!-- 2. आवाज़ को खींचकर बोलता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-2.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-2.avif" alt="आवाज़ को खींचकर बोलता है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">आवाज़ को खींचकर बोलता है?</div>
             </div>
 
             <!-- 3. शब्द शुरू करते समय रुक जाता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-3.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-3.avif" alt="शब्द शुरू करते समय रुक जाता है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">शब्द शुरू करते समय रुक जाता है?</div>
             </div>
 
             <!-- 4. बोलते समय अटकता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-4.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-4.avif" alt="बोलते समय अटकता है?" class="ayur-symptom-img" loading="lazy">
+              </div>
               <div class="ayur-check-text">बोलते समय अटकता है?</div>
             </div>
 
             <!-- 5. लोगों के सामने ज्यादा हकलाता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-6.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-6.avif" alt="लोगों के सामने ज्यादा हकलाता है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">लोगों के सामने ज्यादा हकलाता है?</div>
             </div>
 
             <!-- 6. Class में बोलने से झिझकता है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-5.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-5.avif" alt="Class में बोलने से झिझकता है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">Class में बोलने से झिझकता है?</div>
             </div>
 
             <!-- 7. अपनी बात कहने से बचने लगा है? -->
-            <div class="ayur-checklist-row" onclick="toggleCheckRow(this)">
-              <img src="images/problem-7.avif" alt="संकेत" class="ayur-checklist-thumb" loading="lazy">
-              <div class="ayur-check-icon">✓</div>
+            <div class="ayur-checklist-row ayur-symptom-card ayur-symptom-card-odd" onclick="toggleCheckRow(this)">
+              <span class="ayur-check-icon" aria-hidden="true">✓</span>
+              <div class="ayur-symptom-media-wrap">
+                <img src="images/problem-7.avif" alt="अपनी बात कहने से बचने लगा है?" class="ayur-symptom-img"
+                  loading="lazy">
+              </div>
               <div class="ayur-check-text">अपनी बात कहने से बचने लगा है?</div>
             </div>
           </div>
@@ -194,24 +251,13 @@
             </p>
           </div>
 
-          <!-- 4 Creative Wellness Pillars Grid -->
-          <div class="ayur-solution-pillars-grid">
-            <div class="ayur-sol-chip">
-              <span class="chip-icon">🧠</span>
-              <span class="chip-title">Brain Support</span>
-            </div>
-            <div class="ayur-sol-chip">
-              <span class="chip-icon">💡</span>
-              <span class="chip-title">Cognitive Focus</span>
-            </div>
-            <div class="ayur-sol-chip">
-              <span class="chip-icon">🧘</span>
-              <span class="chip-title">Mental Calm</span>
-            </div>
-            <div class="ayur-sol-chip">
-              <span class="chip-icon">⚡</span>
-              <span class="chip-title">Nervous System</span>
-            </div>
+          <!-- Related Ayurvedic Herbs Image (Brahmi, Shankhpushpi, Ashwagandha, Jatamansi & Exact AyurVani Bottle) -->
+          <div class="ayur-solution-media-frame">
+            <img
+              src="../../../../.gemini/antigravity-ide/brain/23acfbd3-3123-4fee-91ea-e2f4f2ca6113/ayurvani_exact_bottle_herbs_composition_1792142882735.jpg"
+              onerror="this.src='images/benefit-1.avif'"
+              alt="AyurVani Capsules with Brahmi, Shankhpushpi, Ashwagandha, and Jatamansi"
+              class="ayur-solution-media-img" loading="lazy">
           </div>
 
           <!-- Herb Wisdom Explanatory Note -->
@@ -224,20 +270,61 @@
           </div>
         </div>
 
-        <!-- Product Image Showcase with Clean Modern Floating Pedestal (NO unapproved text) -->
-        <div class="ayur-pedestal-stage ayur-reveal" style="min-height: 290px; margin-bottom: 14px;">
-          <div class="ayur-bottle-pedestal-wrap">
-            <div class="ayur-bottle-glow"></div>
-            <img src="images/product.avif" alt="AyurVani Capsules" class="ayur-hero-bottle" loading="eager">
-          </div>
-          <div class="ayur-rock-base">
-            <div class="ayur-pure-badge">
-              <i class="ti ti-leaf"></i>
-              <span>PURE AYURVEDIC</span>
-              <i class="ti ti-leaf"></i>
+        <!-- Product Image Showcase: Botanical Cloche Dome Framing Real Product (Matching Screenshot 1 Style) -->
+        <div class="ayur-pedestal-stage ayur-cloche-showcase ayur-reveal">
+          <div class="ayur-cloche-composition">
+            <!-- 1. Ambient Ground Drop Shadow -->
+            <div class="ayur-cloche-ground-shadow"></div>
+
+            <!-- 2. Dotted Celestial Orbit with Gold & Sage Accent Beads -->
+            <div class="ayur-cloche-orbit">
+              <span class="orbit-bead orbit-bead-gold"></span>
+              <span class="orbit-bead orbit-bead-sage"></span>
+            </div>
+
+            <!-- 3. Floating Botanical Leaf - Top Right (Pointing up-right) -->
+            <div class="ayur-cloche-leaf ayur-leaf-top-right">
+              <svg viewBox="0 0 60 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 0 C 14 -22 34 -32 54 -36 C 44 -14 34 8 0 0 Z" fill="#4F8C62" />
+                <path d="M 4 -1 L 46 -31" stroke="#85B594" stroke-width="1.3" stroke-linecap="round" />
+              </svg>
+            </div>
+
+            <!-- 4. Floating Botanical Leaf - Bottom Left (Overlapping arch border) -->
+            <div class="ayur-cloche-leaf ayur-leaf-bottom-left">
+              <svg viewBox="0 0 65 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 0 C 16 -24 38 -34 60 -38 C 48 -16 36 10 0 0 Z" fill="#7DA589" />
+                <path d="M 5 -2 L 52 -33" stroke="#A3C4AE" stroke-width="1.3" stroke-linecap="round" />
+              </svg>
+            </div>
+
+            <!-- 5. Floating Botanical Leaves - Floating Accent Accents -->
+            <div class="ayur-cloche-leaf ayur-leaf-accent-left">
+              <svg viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 0 C 10 -15 24 -22 38 -25 C 30 -10 22 6 0 0 Z" fill="#3C8054" />
+              </svg>
+            </div>
+            <div class="ayur-cloche-leaf ayur-leaf-accent-right">
+              <svg viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 0 0 C 10 -15 24 -22 38 -25 C 30 -10 22 6 0 0 Z" fill="#2C6940" />
+              </svg>
+            </div>
+
+            <!-- 6. 3D Pedestal Base Disc (Under the Arch) -->
+            <div class="ayur-cloche-pedestal-disc"></div>
+
+            <!-- 7. The Arched Cloche Glass Dome Frame Holding REAL product.avif -->
+            <div class="ayur-cloche-arch-vault">
+              <!-- Glass Sheen Curved Highlight -->
+              <div class="ayur-cloche-glass-sheen"></div>
+
+              <!-- Real Product Image (product.avif) -->
+              <img src="images/product.avif" alt="AyurVani Capsules" class="ayur-cloche-product-img" loading="eager">
+
+              <!-- Soft Bottom Shade for Natural Contrast -->
+              <div class="ayur-cloche-inner-shade"></div>
             </div>
           </div>
-          <div class="ayur-water-reflection"></div>
         </div>
 
         <!-- 4 Pillars Routine Card -->
@@ -305,115 +392,184 @@
             </div>
             <p>हकलापन को लेकर बच्चे पर pressure बढ़ाना नहीं, बल्कि उसकी daily routine में supportive care जोड़ना है।</p>
             <a href="#howItWorksSec" class="ayur-gold-action-btn" style="padding: 10px 18px; font-size: 0.98rem;">
-              <span>[AyurVani के बारे में जानें→]</span>
+              <span>AyurVani के बारे में जानें →</span>
             </a>
           </div>
         </div>
 
         <!-- 04. HOW IT WORKS -->
-        <div id="howItWorksSec">
-          <div class="ayur-section-header-gold ayur-reveal">
-            <div class="ayur-leaf-line-left"></div>
-            <div class="ayur-header-label">
-              <span>04. HOW IT WORKS</span>
-            </div>
-            <div class="ayur-leaf-line-right"></div>
+        <div id="howItWorksSec" class="ayur-hiw-section-wrap ayur-reveal">
+          <div class="ayur-hiw-top-motif">
+            <span class="motif-line"></span>
+            <span class="motif-leaf">🌿</span>
+            <span class="motif-line"></span>
           </div>
 
-          <h2 class="ayur-section-title-white ayur-reveal" style="text-align: center; margin-bottom: 14px;">
+          <div class="ayur-section-header-gold">
+            <div class="ayur-header-label">
+              <span
+                style="color: #F5BA42 !important; font-weight: 850 !important; font-size: 0.92rem !important; letter-spacing: 1px !important; text-shadow: 0 0 10px rgba(245, 186, 66, 0.6) !important;">04.
+                HOW IT WORKS</span>
+            </div>
+          </div>
+
+          <h2 class="ayur-hiw-main-title">
             AYURVANI कैसे Support करता है?
           </h2>
 
           <div class="ayur-howitworks-grid">
             <!-- 🧠 Brain Wellness Support -->
-            <div class="ayur-hiw-card ayur-reveal">
+            <div class="ayur-hiw-card">
               <div class="ayur-hiw-img-frame">
                 <img src="images/benefit-1.avif" alt="Brain Wellness Support" class="ayur-hiw-thumb" loading="lazy">
               </div>
               <div class="ayur-hiw-body">
-                <h4>Brain Wellness Support</h4>
+                <h4>🌿 Brain Wellness Support</h4>
                 <p>Brain के overall wellness को support करने के लिए selected Ayurvedic herbs।</p>
               </div>
             </div>
 
             <!-- ⚡ Nervous System Support -->
-            <div class="ayur-hiw-card ayur-reveal">
+            <div class="ayur-hiw-card">
               <div class="ayur-hiw-img-frame">
                 <img src="images/benefit-2.avif" alt="Nervous System Support" class="ayur-hiw-thumb" loading="lazy">
               </div>
               <div class="ayur-hiw-body">
-                <h4>Nervous System Support</h4>
+                <h4>🌿 Nervous System Support</h4>
                 <p>Nervous System के सामान्य functioning और wellness को support करने में सहायता।</p>
               </div>
             </div>
 
             <!-- ================= PAGE 3 CONTINUATION ================= -->
             <!-- 🎯 Focus & Mental Wellness -->
-            <div class="ayur-hiw-card ayur-reveal">
+            <div class="ayur-hiw-card">
               <div class="ayur-hiw-img-frame">
                 <img src="images/benefit-3.avif" alt="Focus & Mental Wellness" class="ayur-hiw-thumb" loading="lazy">
               </div>
               <div class="ayur-hiw-body">
-                <h4>Focus & Mental Wellness</h4>
+                <h4>🌿 Focus & Mental Wellness</h4>
                 <p>Focus और overall mental wellness को support करने वाली पारंपरिक Ayurvedic herbs।</p>
               </div>
             </div>
 
             <!-- 🌿 Daily Wellness -->
-            <div class="ayur-hiw-card ayur-reveal">
+            <div class="ayur-hiw-card">
               <div class="ayur-hiw-img-frame">
                 <img src="images/af-3.avif" alt="Daily Wellness" class="ayur-hiw-thumb" loading="lazy">
               </div>
               <div class="ayur-hiw-body">
-                <h4>Daily Wellness</h4>
+                <h4>🌿 Daily Wellness</h4>
                 <p>Regular routine के साथ बच्चे की overall Brain & Nervous System Wellness पर ध्यान देने में सहायता।</p>
               </div>
             </div>
+          </div>
+
+          <div class="ayur-hiw-bottom-motif">
+            <span class="motif-line"></span>
+            <span class="motif-leaf">🌿</span>
+            <span class="motif-line"></span>
           </div>
         </div>
       </section>
 
       <!-- ================= PAGE 3 ================= -->
       <section class="ayur-section" id="ingredientsSec">
-        <h2 class="ayur-section-title-white ayur-reveal" style="text-align: center; margin-bottom: 16px;">
-          AyurVani में क्या है?
-        </h2>
-
-        <!-- Herbs List with Authentic Photography -->
-        <div class="ayur-herbs-list">
-          <!-- 🌿 Brahmi -->
-          <div class="ayur-herb-item-card ayur-reveal">
-            <img src="images/brahmi.avif" alt="Brahmi" class="ayur-herb-thumb" loading="lazy">
-            <div class="ayur-herb-details">
-              <h4>🌿 Brahmi</h4>
-              <p>Brain और cognitive wellness के लिए पारंपरिक रूप से उपयोग की जाने वाली herb।</p>
+        <!-- Luxury Warm Golden Brown Herb Deck (Image 2 Theme) -->
+        <div class="ayur-ingredients-deck ayur-reveal">
+          <div class="ayur-ingredients-header">
+            <h2 class="ayur-ingredients-main-title">
+              AyurVani में क्या है?
+            </h2>
+            <div class="ayur-ingredients-motif">
+              <span class="motif-line"></span>
+              <span class="motif-leaf"><i class="ti ti-leaf"></i></span>
+              <span class="motif-line"></span>
             </div>
           </div>
 
-          <!-- 🌿 Shankhpushpi -->
-          <div class="ayur-herb-item-card ayur-reveal">
-            <img src="images/shankhpushpi.avif" alt="Shankhpushpi" class="ayur-herb-thumb" loading="lazy">
-            <div class="ayur-herb-details">
-              <h4>🌿 Shankhpushpi</h4>
-              <p>Mental wellness और cognitive support के लिए Ayurveda में पारंपरिक उपयोग।</p>
+          <div class="ayur-herbs-modern-flow" id="herbsGrid">
+            <!-- Card 1: Brahmi -->
+            <div class="ayur-herb-hcard">
+              <div class="ayur-herb-media-vault">
+                <img src="images/brahmi.avif" alt="Brahmi" class="ayur-herb-media-photo" loading="lazy">
+              </div>
+              <div class="ayur-herb-content-body">
+                <h4 class="ayur-herb-title">
+                  <span class="herb-leaf-icon">🌿</span> Brahmi
+                </h4>
+                <p class="ayur-herb-text">
+                  Brain और cognitive wellness के लिए पारंपरिक रूप से उपयोग की जाने वाली herb।
+                </p>
+              </div>
+              <div class="ayur-card-corner-botanical" aria-hidden="true">
+                <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 5 45 C 16 34 24 20 38 4 C 35 18 26 32 12 43 Z" fill="#D49B35" opacity="0.38" />
+                  <path d="M 18 40 C 26 28 32 20 40 12 C 34 22 26 31 18 40 Z" fill="#A86D12" opacity="0.48" />
+                </svg>
+              </div>
             </div>
-          </div>
 
-          <!-- 🌿 Ashwagandha -->
-          <div class="ayur-herb-item-card ayur-reveal">
-            <img src="images/ashwagandha.avif" alt="Ashwagandha" class="ayur-herb-thumb" loading="lazy">
-            <div class="ayur-herb-details">
-              <h4>🌿 Ashwagandha</h4>
-              <p>Stress management और nervous system wellness के support के लिए पारंपरिक रूप से उपयोग की जाती है।</p>
+            <!-- Card 2: Shankhpushpi -->
+            <div class="ayur-herb-hcard">
+              <div class="ayur-herb-media-vault">
+                <img src="images/shankhpushpi.avif" alt="Shankhpushpi" class="ayur-herb-media-photo" loading="lazy">
+              </div>
+              <div class="ayur-herb-content-body">
+                <h4 class="ayur-herb-title">
+                  <span class="herb-leaf-icon">🌿</span> Shankhpushpi
+                </h4>
+                <p class="ayur-herb-text">
+                  Mental wellness और cognitive support के लिए Ayurveda में पारंपरिक उपयोग।
+                </p>
+              </div>
+              <div class="ayur-card-corner-botanical" aria-hidden="true">
+                <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 5 45 C 16 34 24 20 38 4 C 35 18 26 32 12 43 Z" fill="#D49B35" opacity="0.38" />
+                  <path d="M 18 40 C 26 28 32 20 40 12 C 34 22 26 31 18 40 Z" fill="#A86D12" opacity="0.48" />
+                </svg>
+              </div>
             </div>
-          </div>
 
-          <!-- 🌿 Jatamansi -->
-          <div class="ayur-herb-item-card ayur-reveal">
-            <img src="images/jatamansi.avif" alt="Jatamansi" class="ayur-herb-thumb" loading="lazy">
-            <div class="ayur-herb-details">
-              <h4>🌿 Jatamansi</h4>
-              <p>Mental wellness और calming support के लिए Ayurveda में पारंपरिक उपयोग।</p>
+            <!-- Card 3: Ashwagandha -->
+            <div class="ayur-herb-hcard">
+              <div class="ayur-herb-media-vault">
+                <img src="images/ashwagandha.avif" alt="Ashwagandha" class="ayur-herb-media-photo" loading="lazy">
+              </div>
+              <div class="ayur-herb-content-body">
+                <h4 class="ayur-herb-title">
+                  <span class="herb-leaf-icon">🌿</span> Ashwagandha
+                </h4>
+                <p class="ayur-herb-text">
+                  Stress management और nervous system wellness के support के लिए पारंपरिक रूप से उपयोग की जाती है।
+                </p>
+              </div>
+              <div class="ayur-card-corner-botanical" aria-hidden="true">
+                <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 5 45 C 16 34 24 20 38 4 C 35 18 26 32 12 43 Z" fill="#D49B35" opacity="0.38" />
+                  <path d="M 18 40 C 26 28 32 20 40 12 C 34 22 26 31 18 40 Z" fill="#A86D12" opacity="0.48" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Card 4: Jatamansi -->
+            <div class="ayur-herb-hcard">
+              <div class="ayur-herb-media-vault">
+                <img src="images/jatamansi.avif" alt="Jatamansi" class="ayur-herb-media-photo" loading="lazy">
+              </div>
+              <div class="ayur-herb-content-body">
+                <h4 class="ayur-herb-title">
+                  <span class="herb-leaf-icon">🌿</span> Jatamansi
+                </h4>
+                <p class="ayur-herb-text">
+                  Mental wellness और calming support के लिए Ayurveda में पारंपरिक उपयोग।
+                </p>
+              </div>
+              <div class="ayur-card-corner-botanical" aria-hidden="true">
+                <svg viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 5 45 C 16 34 24 20 38 4 C 35 18 26 32 12 43 Z" fill="#D49B35" opacity="0.38" />
+                  <path d="M 18 40 C 26 28 32 20 40 12 C 34 22 26 31 18 40 Z" fill="#A86D12" opacity="0.48" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -483,8 +639,12 @@
           AyurVani के साथ <span class="ayur-gold-text">Daily Hakalapan</span> Support Routine
         </h2>
 
-        <!-- Routine Steps with Visual Thumbnails & Glowing Timeline Connector (Image 2 Architecture) -->
-        <div class="ayur-routine-timeline-v2">
+        <!-- Routine Steps with Visual Thumbnails & Glowing Timeline Connector (Scroll-Drawn Line) -->
+        <div class="ayur-routine-timeline-v2" id="routineTimelineV2">
+          <!-- Scroll-Drawn Connecting Track -->
+          <div class="ayur-routine-track-line">
+            <div class="ayur-routine-track-fill" id="routineTrackFill"></div>
+          </div>
           <!-- 🌅 सुबह -->
           <div class="ayur-timeline-step-row ayur-reveal">
             <div class="ayur-tl-node ayur-node-gold">
@@ -561,8 +721,6 @@
                 <h4 class="ayur-tl-title" style="color: #8C5900;">हर रविवार</h4>
                 <p class="ayur-tl-desc" style="font-weight: 700; color: #173B2B;">Weekly Doctor Check / Progress Review
                 </p>
-                <small class="ayur-tl-subnote">Weekly doctor check केवल तभी mention करें जब यह आपकी वास्तविक service में
-                  उपलब्ध हो।</small>
               </div>
               <div class="ayur-tl-img-box ayur-imgbox-gold-dark">
                 <img src="images/doctor.avif" alt="हर रविवार" class="ayur-tl-thumb" loading="lazy">
@@ -574,201 +732,211 @@
 
       <!-- ================= PAGE 4 (CONTINUED) ================= -->
       <section class="ayur-section" id="guidanceSec">
-        <!-- Top Doctor Badge (Image 3 Architecture) -->
-        <div class="ayur-guidance-badge-icon ayur-reveal" style="text-align: center; margin-bottom: 8px;">
-          <div class="ayur-doc-top-pill">
-            <span>👨‍⚕️</span>
-          </div>
-        </div>
-
-        <h2 class="ayur-section-title-white ayur-reveal" style="text-align: center; margin-bottom: 6px;">
-          हकलापन में Professional Guidance
-        </h2>
-
-        <div class="ayur-reveal" style="text-align: center; margin-bottom: 18px;">
-          <h3 style="color: #FFE6A5; font-size: 1.15rem; font-weight: 700;">हर बच्चे का हकलापन अलग होता है</h3>
-          <p style="color: #D3E8DC; font-size: 0.92rem; margin-top: 4px;">
-            इसलिए बच्चे की age, हकलापन का pattern और communication difficulty को समझना जरूरी है।
-          </p>
-        </div>
-
-        <!-- Weekly Progress Check Header -->
-        <h4 class="ayur-reveal"
-          style="color: #FFF2D1; font-size: 1.12rem; font-weight: 700; margin-bottom: 12px; text-align: left; padding-left: 4px;">
-          Weekly Progress Check
-        </h4>
-
-        <!-- Animated Connected Vertical Timeline (Image 1 & 3 Architecture + White Cards) -->
-        <div class="ayur-weekly-timeline" id="weeklyProgressTimeline">
-          <!-- Animated Connecting Line -->
-          <div class="ayur-wp-track">
-            <div class="ayur-wp-track-fill" id="wpTrackFill"></div>
-          </div>
-
-          <!-- Week 1: Routine Start -->
-          <div class="ayur-wp-row ayur-wp-step" data-step="1">
-            <div class="ayur-wp-node">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <div class="ayur-wp-card ayur-wp-card-white">
-              <div class="ayur-wp-content">
-                <span class="ayur-wp-week">Week 1</span>
-                <span class="ayur-wp-action">→ Routine Start</span>
-              </div>
-              <div class="ayur-wp-img-box">
-                <img src="images/htu-1.avif" alt="Routine Start" class="ayur-wp-thumb" loading="lazy">
-              </div>
+        <!-- Luxury Dark Royal Forest Green Guidance Deck -->
+        <div class="ayur-guidance-deck ayur-reveal">
+          <!-- Top Doctor Badge -->
+          <div class="ayur-guidance-badge-icon" style="text-align: center; margin-bottom: 8px;">
+            <div class="ayur-doc-top-pill">
+              <span>👨‍⚕️</span>
             </div>
           </div>
 
-          <!-- Week 2: Speech Pattern Review -->
-          <div class="ayur-wp-row ayur-wp-step" data-step="2">
-            <div class="ayur-wp-node">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 12h4l3-9 4 18 3-9h4" />
-              </svg>
+          <h2 class="ayur-section-title-white" style="text-align: center; margin-bottom: 6px;">
+            हकलापन में Professional Guidance
+          </h2>
+
+          <div class="ayur-guidance-intro">
+            <h3>हर बच्चे का हकलापन अलग होता है</h3>
+            <p>
+              इसलिए बच्चे की age, हकलापन का pattern और communication difficulty को समझना जरूरी है।
+            </p>
+          </div>
+
+          <!-- Weekly Progress Check Header -->
+          <h4 class="ayur-wp-header">
+            <span>🌿</span> Weekly Progress Check
+          </h4>
+
+          <!-- Animated Connected Vertical Timeline -->
+          <div class="ayur-weekly-timeline" id="weeklyProgressTimeline">
+            <!-- Animated Connecting Line -->
+            <div class="ayur-wp-track">
+              <div class="ayur-wp-track-fill" id="wpTrackFill"></div>
             </div>
-            <div class="ayur-wp-card ayur-wp-card-white">
-              <div class="ayur-wp-content">
-                <span class="ayur-wp-week">Week 2</span>
-                <span class="ayur-wp-action">→ Speech Pattern Review</span>
+
+            <!-- Week 1: Routine Start -->
+            <div class="ayur-wp-row ayur-wp-step" data-step="1">
+              <div class="ayur-wp-node">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
               </div>
-              <div class="ayur-wp-img-box">
-                <img src="images/af-1.avif" alt="Speech Pattern Review" class="ayur-wp-thumb" loading="lazy">
+              <div class="ayur-wp-card ayur-wp-card-white">
+                <div class="ayur-wp-content">
+                  <span class="ayur-wp-week">Week 1</span>
+                  <span class="ayur-wp-action">→ Routine Start</span>
+                </div>
+                <div class="ayur-wp-img-box">
+                  <img src="images/htu-1.avif" alt="Routine Start" class="ayur-wp-thumb" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 2: Speech Pattern Review -->
+            <div class="ayur-wp-row ayur-wp-step" data-step="2">
+              <div class="ayur-wp-node">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12h4l3-9 4 18 3-9h4" />
+                </svg>
+              </div>
+              <div class="ayur-wp-card ayur-wp-card-white">
+                <div class="ayur-wp-content">
+                  <span class="ayur-wp-week">Week 2</span>
+                  <span class="ayur-wp-action">→ Speech Pattern Review</span>
+                </div>
+                <div class="ayur-wp-img-box">
+                  <img src="images/af-1.avif" alt="Speech Pattern Review" class="ayur-wp-thumb" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 3: Routine Follow-up -->
+            <div class="ayur-wp-row ayur-wp-step" data-step="3">
+              <div class="ayur-wp-node">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19" />
+                </svg>
+              </div>
+              <div class="ayur-wp-card ayur-wp-card-white">
+                <div class="ayur-wp-content">
+                  <span class="ayur-wp-week">Week 3</span>
+                  <span class="ayur-wp-action">→ Routine Follow-up</span>
+                </div>
+                <div class="ayur-wp-img-box">
+                  <img src="images/benefit-1.avif" alt="Routine Follow-up" class="ayur-wp-thumb" loading="lazy">
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 4: Progress Review -->
+            <div class="ayur-wp-row ayur-wp-step" data-step="4">
+              <div class="ayur-wp-node">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18" />
+                  <path d="m19 9-5 5-4-4-3 3" />
+                </svg>
+              </div>
+              <div class="ayur-wp-card ayur-wp-card-white">
+                <div class="ayur-wp-content">
+                  <span class="ayur-wp-week">Week 4</span>
+                  <span class="ayur-wp-action">→ Progress Review</span>
+                </div>
+                <div class="ayur-wp-img-box">
+                  <img src="images/af-4.avif" alt="Progress Review" class="ayur-wp-thumb" loading="lazy">
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Week 3: Routine Follow-up -->
-          <div class="ayur-wp-row ayur-wp-step" data-step="3">
-            <div class="ayur-wp-node">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19" />
-              </svg>
-            </div>
-            <div class="ayur-wp-card ayur-wp-card-white">
-              <div class="ayur-wp-content">
-                <span class="ayur-wp-week">Week 3</span>
-                <span class="ayur-wp-action">→ Routine Follow-up</span>
+          <!-- Separate Doctor Check Report Card -->
+          <div class="ayur-doctor-report-card">
+            <!-- Doctor Check Report Profile -->
+            <div class="ayur-doctor-profile">
+              <div class="ayur-doctor-img-wrap">
+                <img src="images/doctor.avif" alt="Doctor Consultation" class="ayur-doctor-img" loading="lazy">
               </div>
-              <div class="ayur-wp-img-box">
-                <img src="images/benefit-1.avif" alt="Routine Follow-up" class="ayur-wp-thumb" loading="lazy">
+              <div class="ayur-doctor-meta">
+                <h4>Doctor Check Report</h4>
+                <p>[यहाँ वास्तविक doctor check report / consultation proof दिखाएँ]</p>
               </div>
             </div>
-          </div>
 
-          <!-- Week 4: Progress Review -->
-          <div class="ayur-wp-row ayur-wp-step" data-step="4">
-            <div class="ayur-wp-node">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18" />
-                <path d="m19 9-5 5-4-4-3 3" />
-              </svg>
-            </div>
-            <div class="ayur-wp-card ayur-wp-card-white">
-              <div class="ayur-wp-content">
-                <span class="ayur-wp-week">Week 4</span>
-                <span class="ayur-wp-action">→ Progress Review</span>
-              </div>
-              <div class="ayur-wp-img-box">
-                <img src="images/af-4.avif" alt="Progress Review" class="ayur-wp-thumb" loading="lazy">
-              </div>
-            </div>
-          </div>
-        </div>
+            <!-- Dotted Divider Line -->
+            <div class="ayur-doctor-dotted-line"></div>
 
-        <!-- Separate Doctor Check Report Card (Image 3 Architecture) -->
-        <div class="ayur-doctor-report-card ayur-reveal" style="margin-top: 18px;">
-          <!-- Doctor Check Report Profile -->
-          <div class="ayur-doctor-profile">
-            <div class="ayur-doctor-img-wrap">
-              <img src="images/doctor.avif" alt="Doctor Consultation" class="ayur-doctor-img" loading="lazy">
+            <!-- SLP Note -->
+            <div class="ayur-slp-guidance-note">
+              अगर बच्चे का हकलापन लगातार बना हुआ है, बढ़ रहा है या बोलने में बहुत struggle दिखाई देता है, तो
+              Speech-Language Pathologist से assessment कराना भी उचित है।
             </div>
-            <div class="ayur-doctor-meta">
-              <h4>Doctor Check Report</h4>
-              <p>[यहाँ वास्तविक doctor check report / consultation proof दिखाएँ]</p>
-            </div>
-          </div>
-
-          <!-- Dotted Divider Line -->
-          <div class="ayur-doctor-dotted-line"></div>
-
-          <!-- SLP Note -->
-          <div class="ayur-slp-guidance-note">
-            अगर बच्चे का हकलापन लगातार बना हुआ है, बढ़ रहा है या बोलने में बहुत struggle दिखाई देता है, तो
-            Speech-Language Pathologist से assessment कराना भी उचित है।
           </div>
         </div>
       </section>
 
       <!-- ================= PAGE 5 ================= -->
       <section class="ayur-section" id="transformationSec">
-        <div class="ayur-reveal"
-          style="text-align: center; color: var(--gold-300); font-weight: 700; font-size: 1.1rem; margin-bottom: 4px;">
-          Before → After
+        <!-- Luxury Warm Golden Brown Transformation Deck -->
+        <div class="ayur-transformation-deck ayur-reveal">
+          <div class="ayur-transform-top-badge">
+            <span>Before → After</span>
+          </div>
+
+          <h2 class="ayur-transform-main-title">
+            हकलापन से Confidence की ओर
+          </h2>
+
+          <div class="ayur-transform-motif">
+            <span class="motif-line"></span>
+            <span class="motif-leaf"><i class="ti ti-leaf"></i></span>
+            <span class="motif-line"></span>
+          </div>
+
+          <div class="ayur-comparison-box">
+            <div class="ayur-comparison-columns">
+              <!-- Left: पहले -->
+              <div class="ayur-compare-col">
+                <span class="ayur-compare-tag-red">पहले</span>
+                <img src="images/bf-1.avif" alt="पहले" loading="lazy">
+                <div class="ayur-compare-quote">“म-म-मेरा…”</div>
+                <div class="ayur-compare-flow">
+                  हकलापन<br>
+                  <span class="flow-arrow">↓</span><br>
+                  शब्दों में रुकावट<br>
+                  <span class="flow-arrow">↓</span><br>
+                  बोलने में झिझक
+                </div>
+              </div>
+
+              <!-- Right: Routine के साथ -->
+              <div class="ayur-compare-col">
+                <span class="ayur-compare-tag-green">Routine के साथ</span>
+                <img src="images/af-1.avif" alt="Routine के साथ" loading="lazy">
+                <div class="ayur-compare-quote">“मैं अपनी बात कह सकता हूँ।”</div>
+                <div class="ayur-compare-flow">
+                  Daily Practice<br>
+                  <span class="flow-arrow">↓</span><br>
+                  Positive Communication<br>
+                  <span class="flow-arrow">↓</span><br>
+                  Supportive Routine<br>
+                  <span class="flow-arrow">↓</span><br>
+                  Better Confidence
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h2 class="ayur-section-title-white ayur-reveal" style="text-align: center; margin-bottom: 16px;">
-          हकलापन से Confidence की ओर
-        </h2>
 
-        <!-- Before / Routine के साथ Box with Comparative Imagery and Animated Down-Arrows -->
-        <div class="ayur-comparison-box ayur-reveal">
-          <div class="ayur-comparison-columns">
-            <!-- पहले -->
-            <div class="ayur-compare-col">
-              <img src="images/bf-1.avif" alt="पहले" loading="lazy">
-              <span class="ayur-compare-tag-red">पहले</span>
-              <div class="ayur-compare-quote">“म-म-मेरा…”</div>
-              <div class="ayur-compare-flow">
-                हकलापन
-                <div class="ayur-flow-down-arrow"><i class="ti ti-arrow-down"></i></div>
-                शब्दों में रुकावट
-                <div class="ayur-flow-down-arrow"><i class="ti ti-arrow-down"></i></div>
-                बोलने में झिझक
-              </div>
-            </div>
-
-            <!-- Routine के साथ -->
-            <div class="ayur-compare-col">
-              <img src="images/af-1.avif" alt="Routine के साथ" loading="lazy">
-              <span class="ayur-compare-tag-green">Routine के साथ</span>
-              <div class="ayur-compare-quote">“मैं अपनी बात कह सकता हूँ।”</div>
-              <div class="ayur-compare-flow">
-                Daily Practice
-                <div class="ayur-flow-down-arrow"><i class="ti ti-arrow-down"></i></div>
-                Positive Communication
-                <div class="ayur-flow-down-arrow"><i class="ti ti-arrow-down"></i></div>
-                Supportive Routine
-                <div class="ayur-flow-down-arrow"><i class="ti ti-arrow-down"></i></div>
-                Better Confidence
-              </div>
-            </div>
-          </div>
-
-          <!-- Journey Note -->
-          <div class="ayur-journey-boundary-note">
-            <p><strong>हर बच्चे की journey अलग होती है</strong></p>
-            <p>इसलिए हम guaranteed cure का दावा नहीं करते।</p>
-            <p style="margin-top: 6px;">हमारा focus है:</p>
-            <strong>हकलापन को समझना + सही support + consistent routine</strong>
-          </div>
+        <!-- Journey Note -->
+        <div class="ayur-journey-boundary-note ayur-reveal">
+          <p><strong>हर बच्चे की journey अलग होती है</strong></p>
+          <p>इसलिए हम guaranteed cure का दावा नहीं करते।</p>
+          <p style="margin-top: 6px;">हमारा focus है:</p>
+          <strong class="ayur-saffron-highlight">हकलापन को समझना + सही support + consistent routine</strong>
         </div>
 
         <!-- ❤️ 80,000+ Happy Customers with Animated Heart & Stars -->
         <div class="ayur-happy-customers-card ayur-reveal">
-          <div style="font-size: 1.15rem; color: #FFE6A5; font-weight: 700;">
+          <div style="font-size: 1.18rem; color: #FFE6A5; font-weight: 850;">
             <span class="ayur-heart-anim">❤️</span> 80,000+ Happy Customers
           </div>
-          <p style="color: #D3E8DC; font-size: 0.95rem; margin-top: 6px;">
+          <p style="color: #D6E8DC; font-size: 0.96rem; margin-top: 6px;">
             हजारों परिवारों ने AyurVani को अपनी daily wellness routine का हिस्सा बनाया है।
           </p>
           <div class="ayur-stat-big">80K+ Happy Customers</div>
-          <p style="color: #FCE6A8; font-size: 1rem; font-weight: 700; margin-top: 4px;">
+          <p style="color: #FFE6A5; font-size: 1rem; font-weight: 750; margin-top: 4px;">
             Parents का भरोसा ही हमारी सबसे बड़ी पहचान है।
           </p>
           <div class="ayur-stat-stars">⭐⭐⭐⭐⭐</div>
@@ -814,76 +982,79 @@
         </div>
 
         <div class="ayur-reveal" style="text-align: center; margin: 16px 0 6px;">
-          <h3 style="color: #FFE6A5; font-size: 1.15rem; font-weight: 700;">Real Parents • Real Experiences • Real
+          <h3 style="color: #142E22; font-size: 1.15rem; font-weight: 800;">Real Parents • Real Experiences • Real
             Stories</h3>
         </div>
 
-        <!-- [सभी Reviews देखें→] -->
+        <!-- [सभी Reviews देखें →] -->
         <div class="ayur-reveal" style="text-align: center; margin-bottom: 12px;">
           <a href="#ayurCheckout" class="ayur-gold-action-btn"
             style="padding: 10px 20px; font-size: 0.95rem; width: auto; display: inline-flex;">
-            <span>[सभी Reviews देखें→]</span>
+            <span>[सभी Reviews देखें →]</span>
           </a>
         </div>
 
-        <p class="ayur-reveal" style="text-align: center; color: #B2D8C3; font-size: 0.85rem; margin-bottom: 24px;">
+        <p class="ayur-reveal" style="text-align: center; color: #52665B; font-size: 0.86rem; margin-bottom: 24px;">
           80K+ और testimonials केवल आपके वास्तविक, verifiable customer data के आधार पर रखें।
         </p>
 
-        <!-- भरोसा क्यों करें? -->
-        <div class="ayur-section-header-gold ayur-reveal">
-          <div class="ayur-leaf-line-left"></div>
-          <div class="ayur-header-label">
-            <span>भरोसा क्यों करें?</span>
-          </div>
-          <div class="ayur-leaf-line-right"></div>
-        </div>
-
-        <h2 class="ayur-section-title-white ayur-reveal" style="text-align: center; margin-bottom: 18px;">
-          बच्चे के लिए Product चुनते समय Quality सबसे जरूरी है
-        </h2>
-
-        <!-- Certifications 4-Grid -->
-        <div class="ayur-cert-grid ayur-reveal">
-          <div class="ayur-cert-card">
-            <div class="ayur-cert-img"><img src="images/certified-1.avif" alt="AYUSH" loading="lazy"></div>
-            <span style="font-weight: 800;">🏛️ AYUSH</span>
-            <small style="font-size: 0.76rem; color: #173B2B;">[Actual AYUSH License / Details]</small>
+        <!-- Luxury Dark Royal Forest Green Trust & Certifications Deck -->
+        <div class="ayur-trust-cert-deck ayur-reveal">
+          <!-- भरोसा क्यों करें? -->
+          <div class="ayur-section-header-gold" id="trustHeaderSec">
+            <div class="ayur-leaf-line-left"></div>
+            <div class="ayur-header-label ayur-trust-pill-label">
+              <span>भरोसा क्यों करें?</span>
+            </div>
+            <div class="ayur-leaf-line-right"></div>
           </div>
 
-          <div class="ayur-cert-card">
-            <div class="ayur-cert-img"><img src="images/certified-4.avif" alt="GMP" loading="lazy"></div>
-            <span style="font-weight: 800;">🏭 GMP</span>
-            <small style="font-size: 0.76rem; color: #173B2B;">Good Manufacturing Practices</small>
+          <h2 class="ayur-trust-main-title">
+            बच्चे के लिए Product चुनते समय Quality सबसे जरूरी है
+          </h2>
+
+          <!-- Certifications 4-Grid -->
+          <div class="ayur-cert-grid">
+            <div class="ayur-cert-card">
+              <div class="ayur-cert-img"><img src="images/certified-1.avif" alt="AYUSH" loading="lazy"></div>
+              <span class="cert-title">🏛️ AYUSH</span>
+              <small class="cert-desc">[Actual AYUSH License / Details]</small>
+            </div>
+
+            <div class="ayur-cert-card">
+              <div class="ayur-cert-img"><img src="images/certified-4.avif" alt="GMP" loading="lazy"></div>
+              <span class="cert-title">🏭 GMP</span>
+              <small class="cert-desc">Good Manufacturing Practices</small>
+            </div>
+
+            <div class="ayur-cert-card">
+              <div class="ayur-cert-img"><img src="images/certified-2.avif" alt="ISO" loading="lazy"></div>
+              <span class="cert-title">🌐 ISO</span>
+              <small class="cert-desc">[Actual ISO Certification]</small>
+            </div>
+
+            <div class="ayur-cert-card">
+              <div class="ayur-cert-img"><img src="images/certified-3.avif" alt="FSSAI" loading="lazy"></div>
+              <span class="cert-title">🍃 FSSAI</span>
+              <small class="cert-desc">[Actual FSSAI License]</small>
+            </div>
           </div>
 
-          <div class="ayur-cert-card">
-            <div class="ayur-cert-img"><img src="images/certified-2.avif" alt="ISO" loading="lazy"></div>
-            <span style="font-weight: 800;">🌐 ISO</span>
-            <small style="font-size: 0.76rem; color: #173B2B;">[Actual ISO Certification]</small>
+          <div class="ayur-cert-card ayur-cert-card-wide" style="margin-top: 12px;">
+            <span class="cert-title">🧪 [Actual Additional Certification]</span>
+            <small class="cert-desc">[Certificate Details]</small>
           </div>
 
-          <div class="ayur-cert-card">
-            <div class="ayur-cert-img"><img src="images/certified-3.avif" alt="FSSAI" loading="lazy"></div>
-            <span style="font-weight: 800;">🍃 FSSAI</span>
-            <small style="font-size: 0.76rem; color: #173B2B;">[Actual FSSAI License]</small>
-          </div>
-        </div>
-
-        <div class="ayur-cert-card ayur-reveal" style="margin-top: 10px; text-align: center; padding: 12px;">
-          <span style="font-weight: 800; font-size: 0.92rem;">🧪 [Actual Additional Certification]</span><br>
-          <small style="font-size: 0.8rem; color: #173B2B;">[Certificate Details]</small>
-        </div>
-
-        <div class="ayur-reveal" style="text-align: center; margin-top: 14px;">
-          <p style="color: #FFE6A5; font-size: 0.95rem; font-weight: 700;">
-            Clear Ingredients • Quality Manufacturing • Transparent Information
-          </p>
-          <div style="margin-top: 8px;">
-            <a href="#ayurCheckout" class="ayur-gold-action-btn"
-              style="padding: 9px 18px; font-size: 0.9rem; width: auto; display: inline-flex;">
-              <span>[Certificates देखें→]</span>
-            </a>
+          <div style="text-align: center; margin-top: 16px; position: relative; z-index: 2;">
+            <p class="ayur-trust-tagline">
+              Clear Ingredients • Quality Manufacturing • Transparent Information
+            </p>
+            <div style="margin-top: 10px;">
+              <a href="#ayurCheckout" class="ayur-gold-action-btn"
+                style="padding: 10px 22px; font-size: 0.95rem; width: auto; display: inline-flex;">
+                <span>[Certificates देखें →]</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -907,9 +1078,6 @@
           <!-- 1. Top Featured Full-Width Card (Image 1 Architecture) -->
           <div class="ayur-offer-featured-card ayur-reveal">
             <div class="ayur-offer-feat-left">
-              <div class="ayur-offer-node ayur-node-gold">
-                <span>🌿</span>
-              </div>
               <div class="ayur-offer-feat-text">
                 <h4 class="ayur-offer-feat-title">AyurVani Herbal Support</h4>
                 <span class="ayur-offer-feat-sub">[Actual Pack Size]</span>
@@ -925,9 +1093,6 @@
             <!-- Grid Card 1: FREE Diet Chart -->
             <div class="ayur-offer-grid-card ayur-reveal">
               <div class="ayur-offer-card-top">
-                <div class="ayur-offer-node ayur-node-green">
-                  <span>🥗</span>
-                </div>
                 <div class="ayur-offer-thumb-box">
                   <img src="images/htu-2.avif" alt="Diet Chart" class="ayur-offer-thumb-img" loading="lazy">
                 </div>
@@ -943,9 +1108,6 @@
             <!-- Grid Card 2: Speech Practice Routine -->
             <div class="ayur-offer-grid-card ayur-reveal">
               <div class="ayur-offer-card-top">
-                <div class="ayur-offer-node ayur-node-coral">
-                  <span>🗣️</span>
-                </div>
                 <div class="ayur-offer-thumb-box">
                   <img src="images/af-1.avif" alt="Speech Practice Routine" class="ayur-offer-thumb-img" loading="lazy">
                 </div>
@@ -959,9 +1121,6 @@
             <!-- Grid Card 3: Weekly Doctor Check -->
             <div class="ayur-offer-grid-card ayur-reveal">
               <div class="ayur-offer-card-top">
-                <div class="ayur-offer-node ayur-node-purple">
-                  <span>👨‍⚕️</span>
-                </div>
                 <div class="ayur-offer-thumb-box">
                   <img src="images/doctor.avif" alt="Weekly Doctor Check" class="ayur-offer-thumb-img" loading="lazy">
                 </div>
@@ -975,9 +1134,6 @@
             <!-- Grid Card 4: Weekly Progress Report -->
             <div class="ayur-offer-grid-card ayur-reveal">
               <div class="ayur-offer-card-top">
-                <div class="ayur-offer-node ayur-node-gold">
-                  <span>📋</span>
-                </div>
                 <div class="ayur-offer-thumb-box">
                   <img src="images/af-4.avif" alt="Weekly Progress Report" class="ayur-offer-thumb-img" loading="lazy">
                 </div>
@@ -1010,13 +1166,18 @@
           <!-- 4. CTA Button (Image 1 Style) -->
           <div class="ayur-reveal" style="margin-top: 16px;">
             <a href="#ayurCheckout" class="ayur-gold-action-btn ayur-btn-pulse">
-              <span>[अभी AyurVani Order करें→]</span>
+              <span class="ayur-btn-icon-wrap ayur-btn-icon-dark" aria-hidden="true">
+                <svg class="ayur-order-cart-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 3.5H5L7.2 14.5C7.3 15.1 7.8 15.5 8.4 15.5H18.2C18.8 15.5 19.3 15.1 19.4 14.5L21 7H5.8"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="8.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <circle cx="17.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <path d="M11 10.5L13.2 12.7L17 8.5" stroke="#34D399" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="ayur-btn-text">अभी AyurVani Order करें →</span>
             </a>
-          </div>
-
-          <div
-            style="text-align: center; margin-top: 12px; font-weight: 800; color: #FFE6A5; font-size: 1.1rem; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);">
-            Order Now
           </div>
         </div>
       </section>
@@ -1026,12 +1187,16 @@
         <div class="ayur-checkout-card-cream ayur-reveal" id="orderCardWrapper">
 
           <div style="text-align: center; margin-bottom: 14px;">
+            <div
+              style="font-family: var(--font-serif); font-size: 1.1rem; color: #234338; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 6px;">
+              Order Now
+            </div>
             <img src="images/product.avif" alt="AyurVani"
               style="width: 60px; height: auto; margin: 0 auto 8px; display: block;">
             <h3 style="font-family: var(--font-serif); font-size: 1.45rem; color: #173B2B; font-weight: 800;">
               अपने बच्चे के लिए AyurVani मंगाएँ
             </h3>
-            <p style="font-size: 1.05rem; color: var(--gold-500); font-weight: 800; margin-top: 4px;">
+            <p style="font-size: 1.05rem; color: #234338; font-weight: 800; margin-top: 4px;">
               सिर्फ 2 जानकारी भरें
             </p>
           </div>
@@ -1082,9 +1247,19 @@
               </div>
             </div>
 
-            <!-- Submit Button: [अभी Order करें→] -->
+            <!-- Submit Button: अभी Order करें → -->
             <button type="submit" class="ayur-checkout-gold-btn" id="submitOrderBtn">
-              <span>[अभी Order करें→]</span>
+              <span class="ayur-btn-icon-wrap ayur-btn-icon-dark" aria-hidden="true">
+                <svg class="ayur-order-cart-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 3.5H5L7.2 14.5C7.3 15.1 7.8 15.5 8.4 15.5H18.2C18.8 15.5 19.3 15.1 19.4 14.5L21 7H5.8"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="8.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <circle cx="17.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <path d="M11 10.5L13.2 12.7L17 8.5" stroke="#34D399" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="ayur-btn-text">अभी Order करें →</span>
             </button>
           </form>
 
@@ -1190,21 +1365,48 @@
             <h4>🌿 AyurVani</h4>
             <p>हकलापन के लिए Ayurvedic Herbal Daily Support</p>
             <a href="#ayurCheckout" class="ayur-gold-action-btn">
-              <span>[अभी AyurVani Order करें→]</span>
+              <span class="ayur-btn-icon-wrap ayur-btn-icon-dark" aria-hidden="true">
+                <svg class="ayur-order-cart-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 3.5H5L7.2 14.5C7.3 15.1 7.8 15.5 8.4 15.5H18.2C18.8 15.5 19.3 15.1 19.4 14.5L21 7H5.8"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <circle cx="8.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <circle cx="17.5" cy="19.5" r="1.6" fill="currentColor" />
+                  <path d="M11 10.5L13.2 12.7L17 8.5" stroke="#34D399" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="ayur-btn-text">अभी AyurVani Order करें →</span>
             </a>
           </div>
         </div>
       </section>
 
+      <!-- ================= DISCLAIMER (EXACT GOOGLE DOC CONTENT) ================= -->
+      <footer class="ayur-disclaimer-wrap ayur-reveal">
+        <div class="ayur-disclaimer-card">
+          <p class="ayur-disclaimer-label">Disclaimer</p>
+        </div>
+      </footer>
+
+
       <!-- ================= STICKY BOTTOM QUICK ORDER BAR ================= -->
       <div class="ayur-sticky-bar" id="stickyBottomBar">
         <div class="ayur-sticky-info">
-          <span class="ayur-sticky-title">AyurVani Capsules</span>
-          <span class="ayur-sticky-sub">Free Delivery · COD Available</span>
+          <span class="ayur-sticky-title">🌿 AyurVani</span>
+          <span class="ayur-sticky-sub">हकलापन के लिए Ayurvedic Herbal Support</span>
         </div>
         <a href="#ayurCheckout" class="ayur-sticky-btn" id="stickyOrderCta">
-          <i class="ti ti-shopping-cart"></i>
-          <span>Order करें</span>
+          <span class="ayur-btn-icon-wrap" aria-hidden="true">
+            <svg class="ayur-order-cart-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 3.5H5L7.2 14.5C7.3 15.1 7.8 15.5 8.4 15.5H18.2C18.8 15.5 19.3 15.1 19.4 14.5L21 7H5.8"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <circle cx="8.5" cy="19.5" r="1.6" fill="currentColor" />
+              <circle cx="17.5" cy="19.5" r="1.6" fill="currentColor" />
+              <path d="M11 10.5L13.2 12.7L17 8.5" stroke="#F5BA42" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="ayur-btn-text">अभी Order करें →</span>
         </a>
       </div>
 
@@ -1229,7 +1431,7 @@
   </div>
 
   <!-- Interactive Controller -->
-  <script src="script.js?v=2026.70"></script>
+  <script src="script.js?v=2026.140"></script>
 </body>
 
 </html>
